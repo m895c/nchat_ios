@@ -9,10 +9,19 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    var socket : SIOSocket?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        SIOSocket.socketWithHost("http://192.168.12.200:3000") { (socket: SIOSocket!) in
+            self.socket = socket
+            socket.on("chat message", callback: { (args:[AnyObject]!)  in
+                println(args)
+            })
+        }
     }
 
     override func didReceiveMemoryWarning() {

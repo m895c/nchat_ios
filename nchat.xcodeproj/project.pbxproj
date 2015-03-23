@@ -39,6 +39,7 @@
 		EC20BF161AC0C26200720CD5 /* nchatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = nchatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC20BF1B1AC0C26200720CD5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC20BF1C1AC0C26200720CD5 /* nchatTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nchatTests.swift; sourceTree = "<group>"; };
+		ECB77A3A1AC0D4A900630478 /* nchat-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "nchat-Bridging-Header.h"; sourceTree = "<group>"; };
 		F4E072E75824E9C579F4766F /* Pods-nchat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nchat.release.xcconfig"; path = "Pods/Target Support Files/Pods-nchat/Pods-nchat.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -98,6 +99,7 @@
 				EC20BF0A1AC0C26200720CD5 /* Main.storyboard */,
 				EC20BF0D1AC0C26200720CD5 /* Images.xcassets */,
 				EC20BF0F1AC0C26200720CD5 /* LaunchScreen.xib */,
+				ECB77A3A1AC0D4A900630478 /* nchat-Bridging-Header.h */,
 				EC20BF041AC0C26200720CD5 /* Supporting Files */,
 			);
 			path = nchat;
@@ -401,6 +403,7 @@
 				INFOPLIST_FILE = nchat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "nchat/nchat-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -412,6 +415,7 @@
 				INFOPLIST_FILE = nchat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "nchat/nchat-Bridging-Header.h";
 			};
 			name = Release;
 		};

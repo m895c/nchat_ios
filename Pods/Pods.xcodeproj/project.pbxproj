@@ -7,178 +7,178 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		602700C102551E4FB645C7ED /* Pods-nchat-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 83AB627C7D786EE9380B3886 /* Pods-nchat-dummy.m */; };
-		72A8390F6504406FCBF36CC5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 718A71DD5809BB4437763CD0 /* Foundation.framework */; };
-		8AD2DC73627ADC78E38CC457 /* socket.io.js.h in Headers */ = {isa = PBXBuildFile; fileRef = D36ABC271D4DA47ED3DEBE86 /* socket.io.js.h */; };
-		A3BBDE1FDBE548BD6A93F9EC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 718A71DD5809BB4437763CD0 /* Foundation.framework */; };
-		A4ABD9F5B222B4A5678D2240 /* Pods-nchat-SIOSocket-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F3ED9112447D172B58FE1D83 /* Pods-nchat-SIOSocket-dummy.m */; };
-		CEB706180F051F852460ADA7 /* SIOSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = CF0E6B37ACD4B7D96C9EB5D0 /* SIOSocket.m */; };
-		DEFBA9A055C6494D56A9874D /* SIOSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 46545A476EFBDBB05F5A1036 /* SIOSocket.h */; };
+		47265E060B300ADC388A5694 /* Pods-nchat-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6323AB711AC9F82226B171EA /* Pods-nchat-dummy.m */; };
+		781071CD5D9EB80123562383 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11C2BEAF963C775F4EBED731 /* Foundation.framework */; };
+		8958745EAF8B714E0585CC5F /* SIOSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A20270BE3D8B5CD500591D9 /* SIOSocket.h */; };
+		BDD925A69D992140C1308D38 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11C2BEAF963C775F4EBED731 /* Foundation.framework */; };
+		D405CBB1DB6A0A05E0F0F8A5 /* SIOSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE6CF823283B6E6B76E54E9 /* SIOSocket.m */; };
+		E3C90F7C54A9D79889872F74 /* Pods-nchat-SIOSocket-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BBB7526D7AD359E946240EAD /* Pods-nchat-SIOSocket-dummy.m */; };
+		F443D708EDC08BCDE28B5A73 /* socket.io.js.h in Headers */ = {isa = PBXBuildFile; fileRef = DD34A3A9E1D45910D49D6C21 /* socket.io.js.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		8FF1AC8D2CAB4390E2C71E4F /* PBXContainerItemProxy */ = {
+		2CDA1588AF3AA303AE049F61 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 7ECE1F6DDB0ED15025A06627 /* Project object */;
+			containerPortal = AED63C07305FDC970A03035F /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 0E985637F78E28D1A0067F5B;
+			remoteGlobalIDString = 5D34A044BFB66CC27265AB04;
 			remoteInfo = "Pods-nchat-SIOSocket";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		46545A476EFBDBB05F5A1036 /* SIOSocket.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SIOSocket.h; path = SocketIO/Source/SIOSocket.h; sourceTree = "<group>"; };
-		4C26A7FC18C8A400682E1C7B /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		59FFF00EDAF1CD8228CBFB57 /* Pods-nchat-SIOSocket-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-nchat-SIOSocket-prefix.pch"; sourceTree = "<group>"; };
-		5F46FBBA5A84848644B8F7B2 /* Pods-nchat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-nchat.release.xcconfig"; sourceTree = "<group>"; };
-		62B9571BFAA0542FCFB53054 /* libPods-nchat.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-nchat.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		6985B973D212A165FF967B5A /* Pods-nchat-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-nchat-acknowledgements.plist"; sourceTree = "<group>"; };
-		718A71DD5809BB4437763CD0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		7838D039489804ACF829B683 /* Pods-nchat-SIOSocket.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-nchat-SIOSocket.xcconfig"; sourceTree = "<group>"; };
-		7EB977F83569AD361EC55A32 /* Pods-nchat-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-nchat-environment.h"; sourceTree = "<group>"; };
-		83AB627C7D786EE9380B3886 /* Pods-nchat-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-nchat-dummy.m"; sourceTree = "<group>"; };
-		86F3E2CE01D7C4D097070CFB /* Pods-nchat-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-nchat-acknowledgements.markdown"; sourceTree = "<group>"; };
-		A8F453D19CBCCD103CF30EAC /* Pods-nchat-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-nchat-resources.sh"; sourceTree = "<group>"; };
-		C9B3D1129AF5A51B43D49E35 /* libPods-nchat-SIOSocket.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-nchat-SIOSocket.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		CF0E6B37ACD4B7D96C9EB5D0 /* SIOSocket.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SIOSocket.m; path = SocketIO/Source/SIOSocket.m; sourceTree = "<group>"; };
-		D36ABC271D4DA47ED3DEBE86 /* socket.io.js.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = socket.io.js.h; path = SocketIO/Source/socket.io.js.h; sourceTree = "<group>"; };
-		E85AE727FF25C5B4BDF0DACD /* Pods-nchat-SIOSocket-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-nchat-SIOSocket-Private.xcconfig"; sourceTree = "<group>"; };
-		F3ED9112447D172B58FE1D83 /* Pods-nchat-SIOSocket-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-nchat-SIOSocket-dummy.m"; sourceTree = "<group>"; };
-		F6221699C28D4A3E1CBE6EB7 /* Pods-nchat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-nchat.debug.xcconfig"; sourceTree = "<group>"; };
+		0C413D8BB4B0FA4CFB67AA4B /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		11C2BEAF963C775F4EBED731 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		5055244523020DAF26ABAFBE /* Pods-nchat-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-nchat-acknowledgements.markdown"; sourceTree = "<group>"; };
+		6323AB711AC9F82226B171EA /* Pods-nchat-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-nchat-dummy.m"; sourceTree = "<group>"; };
+		663B782352A434965A7A3769 /* Pods-nchat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-nchat.debug.xcconfig"; sourceTree = "<group>"; };
+		968B5137ADF55E6D6ADD4151 /* Pods-nchat-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-nchat-resources.sh"; sourceTree = "<group>"; };
+		96CFEB43DD99D7AF5499DE5B /* Pods-nchat-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-nchat-acknowledgements.plist"; sourceTree = "<group>"; };
+		96F7B41604AD5951394EA330 /* Pods-nchat-SIOSocket.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-nchat-SIOSocket.xcconfig"; sourceTree = "<group>"; };
+		9A20270BE3D8B5CD500591D9 /* SIOSocket.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SIOSocket.h; path = SocketIO/Source/SIOSocket.h; sourceTree = "<group>"; };
+		A01B73B2B9B2F942C5DF9974 /* Pods-nchat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-nchat.release.xcconfig"; sourceTree = "<group>"; };
+		A0596274A96A69EFF8EC5705 /* Pods-nchat-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-nchat-environment.h"; sourceTree = "<group>"; };
+		AD5C51375051F7FAFEC70084 /* Pods-nchat-SIOSocket-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-nchat-SIOSocket-Private.xcconfig"; sourceTree = "<group>"; };
+		B8FD39FEF6C7CA14530448D3 /* Pods-nchat-SIOSocket-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-nchat-SIOSocket-prefix.pch"; sourceTree = "<group>"; };
+		BBB7526D7AD359E946240EAD /* Pods-nchat-SIOSocket-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-nchat-SIOSocket-dummy.m"; sourceTree = "<group>"; };
+		CB7A0C691F0ABC04E129CBE2 /* libPods-nchat.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-nchat.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEE6CF823283B6E6B76E54E9 /* SIOSocket.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SIOSocket.m; path = SocketIO/Source/SIOSocket.m; sourceTree = "<group>"; };
+		DD34A3A9E1D45910D49D6C21 /* socket.io.js.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = socket.io.js.h; path = SocketIO/Source/socket.io.js.h; sourceTree = "<group>"; };
+		FCBF824624436E2A801A20E5 /* libPods-nchat-SIOSocket.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-nchat-SIOSocket.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		B54702F77AE9DB9DB6691FAF /* Frameworks */ = {
+		0884A87CBE2BCBE40A03C65B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A3BBDE1FDBE548BD6A93F9EC /* Foundation.framework in Frameworks */,
+				BDD925A69D992140C1308D38 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C53886D2064D3147A4F22884 /* Frameworks */ = {
+		0C042460718E3DC999A1B4CA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				72A8390F6504406FCBF36CC5 /* Foundation.framework in Frameworks */,
+				781071CD5D9EB80123562383 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		27ACD6AB5AA783968286FD7E /* Pods-nchat */ = {
+		11B3F50B2AF8A4AA2081D856 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				86F3E2CE01D7C4D097070CFB /* Pods-nchat-acknowledgements.markdown */,
-				6985B973D212A165FF967B5A /* Pods-nchat-acknowledgements.plist */,
-				83AB627C7D786EE9380B3886 /* Pods-nchat-dummy.m */,
-				7EB977F83569AD361EC55A32 /* Pods-nchat-environment.h */,
-				A8F453D19CBCCD103CF30EAC /* Pods-nchat-resources.sh */,
-				F6221699C28D4A3E1CBE6EB7 /* Pods-nchat.debug.xcconfig */,
-				5F46FBBA5A84848644B8F7B2 /* Pods-nchat.release.xcconfig */,
+				5A78663D471741DC8EDD4558 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		27947492E15099B024A69C3A /* SIOSocket */ = {
+			isa = PBXGroup;
+			children = (
+				9A20270BE3D8B5CD500591D9 /* SIOSocket.h */,
+				CEE6CF823283B6E6B76E54E9 /* SIOSocket.m */,
+				DD34A3A9E1D45910D49D6C21 /* socket.io.js.h */,
+				C74EC5595D310583BADECFFC /* Support Files */,
+			);
+			path = SIOSocket;
+			sourceTree = "<group>";
+		};
+		485BA67D5E70D24C546F3ECE /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				97F62C6E08E6585AC87B7097 /* Pods-nchat */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		5A78663D471741DC8EDD4558 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				11C2BEAF963C775F4EBED731 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		97F62C6E08E6585AC87B7097 /* Pods-nchat */ = {
+			isa = PBXGroup;
+			children = (
+				5055244523020DAF26ABAFBE /* Pods-nchat-acknowledgements.markdown */,
+				96CFEB43DD99D7AF5499DE5B /* Pods-nchat-acknowledgements.plist */,
+				6323AB711AC9F82226B171EA /* Pods-nchat-dummy.m */,
+				A0596274A96A69EFF8EC5705 /* Pods-nchat-environment.h */,
+				968B5137ADF55E6D6ADD4151 /* Pods-nchat-resources.sh */,
+				663B782352A434965A7A3769 /* Pods-nchat.debug.xcconfig */,
+				A01B73B2B9B2F942C5DF9974 /* Pods-nchat.release.xcconfig */,
 			);
 			name = "Pods-nchat";
 			path = "Target Support Files/Pods-nchat";
 			sourceTree = "<group>";
 		};
-		426F76CFB7F2612F3E7D094F /* Targets Support Files */ = {
+		AE227BA4264490859C09A546 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				27ACD6AB5AA783968286FD7E /* Pods-nchat */,
+				27947492E15099B024A69C3A /* SIOSocket */,
 			);
-			name = "Targets Support Files";
+			name = Pods;
 			sourceTree = "<group>";
 		};
-		48E25FCA8E28A08921F8F9D4 /* Products */ = {
+		BEC9A93A5CF16A3FC7196A94 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				62B9571BFAA0542FCFB53054 /* libPods-nchat.a */,
-				C9B3D1129AF5A51B43D49E35 /* libPods-nchat-SIOSocket.a */,
+				CB7A0C691F0ABC04E129CBE2 /* libPods-nchat.a */,
+				FCBF824624436E2A801A20E5 /* libPods-nchat-SIOSocket.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		AB99EE74D6984C28D91FA38D = {
+		C74EC5595D310583BADECFFC /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				4C26A7FC18C8A400682E1C7B /* Podfile */,
-				B4CEE4046B7C4F6DDC41F51D /* Frameworks */,
-				E532481613B2E3330ADF6F84 /* Pods */,
-				48E25FCA8E28A08921F8F9D4 /* Products */,
-				426F76CFB7F2612F3E7D094F /* Targets Support Files */,
-			);
-			sourceTree = "<group>";
-		};
-		B4CEE4046B7C4F6DDC41F51D /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				BB8E535EAEEFEFFF9F192278 /* iOS */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		BB8E535EAEEFEFFF9F192278 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				718A71DD5809BB4437763CD0 /* Foundation.framework */,
-			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
-		DFA5EC7D342E5C8D797EFBB6 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				7838D039489804ACF829B683 /* Pods-nchat-SIOSocket.xcconfig */,
-				E85AE727FF25C5B4BDF0DACD /* Pods-nchat-SIOSocket-Private.xcconfig */,
-				F3ED9112447D172B58FE1D83 /* Pods-nchat-SIOSocket-dummy.m */,
-				59FFF00EDAF1CD8228CBFB57 /* Pods-nchat-SIOSocket-prefix.pch */,
+				96F7B41604AD5951394EA330 /* Pods-nchat-SIOSocket.xcconfig */,
+				AD5C51375051F7FAFEC70084 /* Pods-nchat-SIOSocket-Private.xcconfig */,
+				BBB7526D7AD359E946240EAD /* Pods-nchat-SIOSocket-dummy.m */,
+				B8FD39FEF6C7CA14530448D3 /* Pods-nchat-SIOSocket-prefix.pch */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/Pods-nchat-SIOSocket";
 			sourceTree = "<group>";
 		};
-		DFFEBC2DF099E26CC77B4CE1 /* SIOSocket */ = {
+		E556859A491B6D2D92CF275B = {
 			isa = PBXGroup;
 			children = (
-				46545A476EFBDBB05F5A1036 /* SIOSocket.h */,
-				CF0E6B37ACD4B7D96C9EB5D0 /* SIOSocket.m */,
-				D36ABC271D4DA47ED3DEBE86 /* socket.io.js.h */,
-				DFA5EC7D342E5C8D797EFBB6 /* Support Files */,
+				0C413D8BB4B0FA4CFB67AA4B /* Podfile */,
+				11B3F50B2AF8A4AA2081D856 /* Frameworks */,
+				AE227BA4264490859C09A546 /* Pods */,
+				BEC9A93A5CF16A3FC7196A94 /* Products */,
+				485BA67D5E70D24C546F3ECE /* Targets Support Files */,
 			);
-			path = SIOSocket;
-			sourceTree = "<group>";
-		};
-		E532481613B2E3330ADF6F84 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				DFFEBC2DF099E26CC77B4CE1 /* SIOSocket */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		98BE7C1B0223D7CE706CA04A /* Headers */ = {
+		BBEAF2B9AA0E0CBF028152D0 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DEFBA9A055C6494D56A9874D /* SIOSocket.h in Headers */,
-				8AD2DC73627ADC78E38CC457 /* socket.io.js.h in Headers */,
+				8958745EAF8B714E0585CC5F /* SIOSocket.h in Headers */,
+				F443D708EDC08BCDE28B5A73 /* socket.io.js.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		0E985637F78E28D1A0067F5B /* Pods-nchat-SIOSocket */ = {
+		5D34A044BFB66CC27265AB04 /* Pods-nchat-SIOSocket */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 07E275759DDA7B875E064237 /* Build configuration list for PBXNativeTarget "Pods-nchat-SIOSocket" */;
+			buildConfigurationList = 09581E8F093C4DAA536F674F /* Build configuration list for PBXNativeTarget "Pods-nchat-SIOSocket" */;
 			buildPhases = (
-				04F6BEEE3115577CF9D0A2C6 /* Sources */,
-				C53886D2064D3147A4F22884 /* Frameworks */,
-				98BE7C1B0223D7CE706CA04A /* Headers */,
+				82D9A5B1FD5592518A1F4E46 /* Sources */,
+				0884A87CBE2BCBE40A03C65B /* Frameworks */,
+				BBEAF2B9AA0E0CBF028152D0 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -186,83 +186,131 @@
 			);
 			name = "Pods-nchat-SIOSocket";
 			productName = "Pods-nchat-SIOSocket";
-			productReference = C9B3D1129AF5A51B43D49E35 /* libPods-nchat-SIOSocket.a */;
+			productReference = FCBF824624436E2A801A20E5 /* libPods-nchat-SIOSocket.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		47FE0F2E3C9A8F0C6E702E7D /* Pods-nchat */ = {
+		7B63D9AE2411B9B89E8E2A31 /* Pods-nchat */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 04EBDD2DDD0B22CF07B3ED7B /* Build configuration list for PBXNativeTarget "Pods-nchat" */;
+			buildConfigurationList = 102FD231A996EAF5B03B03E9 /* Build configuration list for PBXNativeTarget "Pods-nchat" */;
 			buildPhases = (
-				9E9C7856CFC22DDB99C01068 /* Sources */,
-				B54702F77AE9DB9DB6691FAF /* Frameworks */,
+				0EAECEA8E45DF00D22C936FC /* Sources */,
+				0C042460718E3DC999A1B4CA /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				FD97C9F7D3D5316333064B9E /* PBXTargetDependency */,
+				0F8656D4476408F6D8528EB9 /* PBXTargetDependency */,
 			);
 			name = "Pods-nchat";
 			productName = "Pods-nchat";
-			productReference = 62B9571BFAA0542FCFB53054 /* libPods-nchat.a */;
+			productReference = CB7A0C691F0ABC04E129CBE2 /* libPods-nchat.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		7ECE1F6DDB0ED15025A06627 /* Project object */ = {
+		AED63C07305FDC970A03035F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0510;
 			};
-			buildConfigurationList = 5AC270869FF4CB236AE1A28B /* Build configuration list for PBXProject "Pods" */;
+			buildConfigurationList = 9C124D1477F2B0072E671F85 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = AB99EE74D6984C28D91FA38D;
-			productRefGroup = 48E25FCA8E28A08921F8F9D4 /* Products */;
+			mainGroup = E556859A491B6D2D92CF275B;
+			productRefGroup = BEC9A93A5CF16A3FC7196A94 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				47FE0F2E3C9A8F0C6E702E7D /* Pods-nchat */,
-				0E985637F78E28D1A0067F5B /* Pods-nchat-SIOSocket */,
+				7B63D9AE2411B9B89E8E2A31 /* Pods-nchat */,
+				5D34A044BFB66CC27265AB04 /* Pods-nchat-SIOSocket */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		04F6BEEE3115577CF9D0A2C6 /* Sources */ = {
+		0EAECEA8E45DF00D22C936FC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A4ABD9F5B222B4A5678D2240 /* Pods-nchat-SIOSocket-dummy.m in Sources */,
-				CEB706180F051F852460ADA7 /* SIOSocket.m in Sources */,
+				47265E060B300ADC388A5694 /* Pods-nchat-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9E9C7856CFC22DDB99C01068 /* Sources */ = {
+		82D9A5B1FD5592518A1F4E46 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				602700C102551E4FB645C7ED /* Pods-nchat-dummy.m in Sources */,
+				E3C90F7C54A9D79889872F74 /* Pods-nchat-SIOSocket-dummy.m in Sources */,
+				D405CBB1DB6A0A05E0F0F8A5 /* SIOSocket.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		FD97C9F7D3D5316333064B9E /* PBXTargetDependency */ = {
+		0F8656D4476408F6D8528EB9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-nchat-SIOSocket";
-			target = 0E985637F78E28D1A0067F5B /* Pods-nchat-SIOSocket */;
-			targetProxy = 8FF1AC8D2CAB4390E2C71E4F /* PBXContainerItemProxy */;
+			target = 5D34A044BFB66CC27265AB04 /* Pods-nchat-SIOSocket */;
+			targetProxy = 2CDA1588AF3AA303AE049F61 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		20EF7985EAC94C70275E5E45 /* Release */ = {
+		209D5389AEBC72D1E20BCCC6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 663B782352A434965A7A3769 /* Pods-nchat.debug.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		40C4A5A6D5DD03BE04C11188 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A01B73B2B9B2F942C5DF9974 /* Pods-nchat.release.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		49A983837643768A9A5D7B70 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AD5C51375051F7FAFEC70084 /* Pods-nchat-SIOSocket-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-nchat-SIOSocket/Pods-nchat-SIOSocket-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		7B81760C2C9419C9629F60A5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -289,14 +337,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SYMROOT = "${SRCROOT}/../build";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		33A782E7F1639E626DBC2342 /* Debug */ = {
+		7E51531B84B08E8CC2FFCBBE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -328,20 +376,20 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = YES;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Debug;
 		};
-		39111AF036AAFC1C766D81F6 /* Release */ = {
+		D6E93696D52269932354ADBA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E85AE727FF25C5B4BDF0DACD /* Pods-nchat-SIOSocket-Private.xcconfig */;
+			baseConfigurationReference = AD5C51375051F7FAFEC70084 /* Pods-nchat-SIOSocket-Private.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/Pods-nchat-SIOSocket/Pods-nchat-SIOSocket-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
@@ -350,86 +398,38 @@
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
-		};
-		D20B64789CA7D06C7266EF61 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5F46FBBA5A84848644B8F7B2 /* Pods-nchat.release.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		E4704037FD13E97A5C791A5D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = E85AE727FF25C5B4BDF0DACD /* Pods-nchat-SIOSocket-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-nchat-SIOSocket/Pods-nchat-SIOSocket-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		E900AE22E943A2843A4CCDF4 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = F6221699C28D4A3E1CBE6EB7 /* Pods-nchat.debug.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		04EBDD2DDD0B22CF07B3ED7B /* Build configuration list for PBXNativeTarget "Pods-nchat" */ = {
+		09581E8F093C4DAA536F674F /* Build configuration list for PBXNativeTarget "Pods-nchat-SIOSocket" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E900AE22E943A2843A4CCDF4 /* Debug */,
-				D20B64789CA7D06C7266EF61 /* Release */,
+				49A983837643768A9A5D7B70 /* Debug */,
+				D6E93696D52269932354ADBA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		07E275759DDA7B875E064237 /* Build configuration list for PBXNativeTarget "Pods-nchat-SIOSocket" */ = {
+		102FD231A996EAF5B03B03E9 /* Build configuration list for PBXNativeTarget "Pods-nchat" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E4704037FD13E97A5C791A5D /* Debug */,
-				39111AF036AAFC1C766D81F6 /* Release */,
+				209D5389AEBC72D1E20BCCC6 /* Debug */,
+				40C4A5A6D5DD03BE04C11188 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5AC270869FF4CB236AE1A28B /* Build configuration list for PBXProject "Pods" */ = {
+		9C124D1477F2B0072E671F85 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				33A782E7F1639E626DBC2342 /* Debug */,
-				20EF7985EAC94C70275E5E45 /* Release */,
+				7E51531B84B08E8CC2FFCBBE /* Debug */,
+				7B81760C2C9419C9629F60A5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 7ECE1F6DDB0ED15025A06627 /* Project object */;
+	rootObject = AED63C07305FDC970A03035F /* Project object */;
 }
