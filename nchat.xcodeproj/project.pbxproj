@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		67C01CBC81B5E3F8095515C3 /* libPods-nchat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 085DCF76897514FBC014242F /* libPods-nchat.a */; };
 		EC20BF071AC0C26200720CD5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC20BF061AC0C26200720CD5 /* AppDelegate.swift */; };
 		EC20BF091AC0C26200720CD5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC20BF081AC0C26200720CD5 /* ViewController.swift */; };
 		EC20BF0C1AC0C26200720CD5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC20BF0A1AC0C26200720CD5 /* Main.storyboard */; };
@@ -26,6 +27,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		03565786A66A88129BA728E3 /* Pods-nchat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nchat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-nchat/Pods-nchat.debug.xcconfig"; sourceTree = "<group>"; };
+		085DCF76897514FBC014242F /* libPods-nchat.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-nchat.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC20BF011AC0C26200720CD5 /* nchat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nchat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC20BF051AC0C26200720CD5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC20BF061AC0C26200720CD5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -36,6 +39,7 @@
 		EC20BF161AC0C26200720CD5 /* nchatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = nchatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC20BF1B1AC0C26200720CD5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC20BF1C1AC0C26200720CD5 /* nchatTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nchatTests.swift; sourceTree = "<group>"; };
+		F4E072E75824E9C579F4766F /* Pods-nchat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nchat.release.xcconfig"; path = "Pods/Target Support Files/Pods-nchat/Pods-nchat.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67C01CBC81B5E3F8095515C3 /* libPods-nchat.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,12 +61,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		26DD1FCAEC85980293BC9EAB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				03565786A66A88129BA728E3 /* Pods-nchat.debug.xcconfig */,
+				F4E072E75824E9C579F4766F /* Pods-nchat.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		EC20BEF81AC0C26200720CD5 = {
 			isa = PBXGroup;
 			children = (
 				EC20BF031AC0C26200720CD5 /* nchat */,
 				EC20BF191AC0C26200720CD5 /* nchatTests */,
 				EC20BF021AC0C26200720CD5 /* Products */,
+				26DD1FCAEC85980293BC9EAB /* Pods */,
+				F4847520859A7BC3EC7C85A2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -112,6 +128,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		F4847520859A7BC3EC7C85A2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				085DCF76897514FBC014242F /* libPods-nchat.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -119,9 +143,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EC20BF201AC0C26200720CD5 /* Build configuration list for PBXNativeTarget "nchat" */;
 			buildPhases = (
+				754B3B82590C15367FB47293 /* Check Pods Manifest.lock */,
 				EC20BEFD1AC0C26200720CD5 /* Sources */,
 				EC20BEFE1AC0C26200720CD5 /* Frameworks */,
 				EC20BEFF1AC0C26200720CD5 /* Resources */,
+				2610F1CAEDAEB634B90C9E4F /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -206,6 +232,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2610F1CAEDAEB634B90C9E4F /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-nchat/Pods-nchat-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		754B3B82590C15367FB47293 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		EC20BEFD1AC0C26200720CD5 /* Sources */ = {
@@ -336,6 +395,7 @@
 		};
 		EC20BF211AC0C26200720CD5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 03565786A66A88129BA728E3 /* Pods-nchat.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = nchat/Info.plist;
@@ -346,6 +406,7 @@
 		};
 		EC20BF221AC0C26200720CD5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F4E072E75824E9C579F4766F /* Pods-nchat.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = nchat/Info.plist;
@@ -407,6 +468,7 @@
 				EC20BF221AC0C26200720CD5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EC20BF231AC0C26200720CD5 /* Build configuration list for PBXNativeTarget "nchatTests" */ = {
 			isa = XCConfigurationList;
@@ -415,6 +477,7 @@
 				EC20BF251AC0C26200720CD5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
