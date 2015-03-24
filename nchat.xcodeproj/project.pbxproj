@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		67C01CBC81B5E3F8095515C3 /* libPods-nchat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 085DCF76897514FBC014242F /* libPods-nchat.a */; };
+		EC0508C41AC1A794009DB506 /* Socket.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0508C31AC1A794009DB506 /* Socket.swift */; };
 		EC20BF071AC0C26200720CD5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC20BF061AC0C26200720CD5 /* AppDelegate.swift */; };
 		EC20BF091AC0C26200720CD5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC20BF081AC0C26200720CD5 /* ViewController.swift */; };
 		EC20BF0C1AC0C26200720CD5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC20BF0A1AC0C26200720CD5 /* Main.storyboard */; };
@@ -29,6 +30,7 @@
 /* Begin PBXFileReference section */
 		03565786A66A88129BA728E3 /* Pods-nchat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nchat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-nchat/Pods-nchat.debug.xcconfig"; sourceTree = "<group>"; };
 		085DCF76897514FBC014242F /* libPods-nchat.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-nchat.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC0508C31AC1A794009DB506 /* Socket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Socket.swift; sourceTree = "<group>"; };
 		EC20BF011AC0C26200720CD5 /* nchat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nchat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC20BF051AC0C26200720CD5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC20BF061AC0C26200720CD5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 			children = (
 				EC20BF061AC0C26200720CD5 /* AppDelegate.swift */,
 				EC20BF081AC0C26200720CD5 /* ViewController.swift */,
+				EC0508C31AC1A794009DB506 /* Socket.swift */,
 				EC20BF0A1AC0C26200720CD5 /* Main.storyboard */,
 				EC20BF0D1AC0C26200720CD5 /* Images.xcassets */,
 				EC20BF0F1AC0C26200720CD5 /* LaunchScreen.xib */,
@@ -275,6 +278,7 @@
 			files = (
 				EC20BF091AC0C26200720CD5 /* ViewController.swift in Sources */,
 				EC20BF071AC0C26200720CD5 /* AppDelegate.swift in Sources */,
+				EC0508C41AC1A794009DB506 /* Socket.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

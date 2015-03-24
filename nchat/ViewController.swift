@@ -12,14 +12,28 @@ class ViewController: UIViewController {
     
     var socket : SIOSocket?
 
+    @IBOutlet weak var messages: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        SIOSocket.socketWithHost("http://192.168.12.200:3000") { (socket: SIOSocket!) in
+        self.messages.text = ""
+        
+        
+        
+        SIOSocket.socketWithHost("http://localhost:3000") { (socket: SIOSocket!) in
             self.socket = socket
-            socket.on("chat message", callback: { (args:[AnyObject]!)  in
-                println(args)
+            socket.on("chat message", callback: { (args: [AnyObject]!)  in
+                let message : AnyObject = args[0]
+                switch message {
+                case is NSString:
+                    let message_text = message as String
+                    println(message_text)
+                    self.messages.text = (self.messages.text! + "\n" + message_text)
+                default:
+                    println(args[0])
+                }
             })
         }
     }
