@@ -7,42 +7,143 @@
 //
 
 import UIKit
+import Foundation
 
-class ViewController: UIViewController {
+class ViewController: JSQMessagesViewController {
     
     var socket : SIOSocket?
 
-    @IBOutlet weak var messages: UILabel!
+    var messages = [Message]()
+    
+    func receiveMessage(message : String) {
+        //TODO: self.messages.text = self.messages.text! + "\n" + message
+    }
+    
+    func senderId() -> String {
+        return "0"
+    }
+    
+    func senderDisplayName() -> String {
+        return "Evan"
+    }
+    
+    func sendMessage(text: String!, senderId: String!, senderDisplayName: String!, date: NSDate!) {
+        
+        let message = Message(text: text, senderName: senderDisplayName)
+        self.messages.append(message)
+        
+        println("sent message with: \(text)")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        self.messages.text = ""
+        // messageInput.delegate = self
         
+        //starting messages
+        let m1 = Message(text: "Hi Evning this is the internet", senderName: "Ananth")
+
+        self.messages.append(m1)
+        self.finishReceivingMessage()
         
+        let automaticallyScrollsToMostRecentMessage = true
         
-        SIOSocket.socketWithHost("http://localhost:3000") { (socket: SIOSocket!) in
-            self.socket = socket
-            socket.on("chat message", callback: { (args: [AnyObject]!)  in
-                let message : AnyObject = args[0]
-                switch message {
-                case is NSString:
-                    let message_text = message as String
-                    println(message_text)
-                    self.messages.text = (self.messages.text! + "\n" + message_text)
-                default:
-                    println(args[0])
-                }
-            })
-        }
+        let s = Socket(receiveMessage)
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    // ACTIONS
+    
+    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = super.collectionView(collectionView, cellForItemAtIndexPath: indexPath) as JSQMessagesCollectionViewCell
+        
+        let message = messages[indexPath.item]
+        if message.senderId() == senderId() {
+            cell.textView.textColor = UIColor.blackColor()
+        } else {
+            cell.textView.textColor = UIColor.whiteColor()
+        }
+        
+        let attributes : [NSObject:AnyObject] = [NSForegroundColorAttributeName:cell.textView.textColor, NSUnderlineStyleAttributeName: 1]
+        cell.textView.linkTextAttributes = attributes
+        
+        //        cell.textView.linkTextAttributes = [NSForegroundColorAttributeName: cell.textView.textColor,
+        //            NSUnderlineStyleAttributeName: NSUnderlineStyle.StyleSingle]
+        return cell
+    }
+    
+    override func didPressSendButton(button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: NSDate!) {
+        JSQSystemSoundPlayer.jsq_playMessageSentSound()
 
-
+        sendMessage(text, senderId: senderId, senderDisplayName: senderDisplayName, date: date)
+        
+        finishSendingMessage()
+    }
+    
+    override func collectionView(collectionView: JSQMessagesCollectionView!, messageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageData! {
+        return messages[indexPath.item]
+    }
+    
+    
+    override func collectionView(collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageBubbleImageDataSource! {
+        
+        let message = messages[indexPath.item]
+        
+        if message.senderId() == senderId() {
+            return JSQMessagesBubbleImageFactory().incomingMessagesBubbleImageWithColor(UIColor.jsq_messageBubbleLightGrayColor())
+        }
+        
+        return JSQMessagesBubbleImageFactory().incomingMessagesBubbleImageWithColor(UIColor.jsq_messageBubbleLightGrayColor())
+        return JSQMessagesBubbleImageFactory().outgoingMessagesBubbleImageWithColor(UIColor.jsq_messageBubbleGreenColor())
+    }
+    
+    override func collectionView(collectionView: JSQMessagesCollectionView!, avatarImageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageAvatarImageDataSource! {
+        let message = messages[indexPath.item]
+        
+        let diameter = UInt(collectionView.collectionViewLayout.incomingAvatarViewSize.width)
+        
+        let rgbValue = message.messageHash()
+        let r = CGFloat(Float((rgbValue & 0xFF0000) >> 16)/255.0)
+        let g = CGFloat(Float((rgbValue & 0xFF00) >> 8)/255.0)
+        let b = CGFloat(Float(rgbValue & 0xFF)/255.0)
+        let color = UIColor(red: r, green: g, blue: b, alpha: 0.5)
+        
+        let name = message.senderDisplayName()
+        let nameLength = countElements(name)
+        
+        let initials : String? = name.substringToIndex(advance(name.startIndex, min(3, nameLength)))
+        let userImage = JSQMessagesAvatarImageFactory.avatarImageWithUserInitials(initials, backgroundColor: color, textColor: UIColor.blackColor(), font: UIFont.systemFontOfSize(CGFloat(13)), diameter: diameter)
+        
+        return userImage
+    }
+    
+    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return messages.count
+    }
+    
+    override func collectionView(collectionView: JSQMessagesCollectionView!, layout collectionViewLayout: JSQMessagesCollectionViewFlowLayout!, heightForMessageBubbleTopLabelAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
+        let message = messages[indexPath.item]
+        
+        // Sent by me, skip
+        if message.senderId() == senderId() {
+            return CGFloat(0.0);
+        }
+        
+        // Same as previous sender, skip
+        if indexPath.item > 0 {
+            let previousMessage = messages[indexPath.item - 1];
+            if previousMessage.senderId() == message.senderId() {
+                return CGFloat(0.0);
+            }
+        }
+        
+        return kJSQMessagesCollectionViewCellLabelHeightDefault
+    }
 }
 

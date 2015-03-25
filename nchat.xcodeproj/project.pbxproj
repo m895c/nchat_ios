@@ -15,6 +15,7 @@
 		EC20BF0E1AC0C26200720CD5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC20BF0D1AC0C26200720CD5 /* Images.xcassets */; };
 		EC20BF111AC0C26200720CD5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC20BF0F1AC0C26200720CD5 /* LaunchScreen.xib */; };
 		EC20BF1D1AC0C26200720CD5 /* nchatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC20BF1C1AC0C26200720CD5 /* nchatTests.swift */; };
+		EC8014B71AC2F40400F4434B /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8014B61AC2F40400F4434B /* Message.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +42,7 @@
 		EC20BF161AC0C26200720CD5 /* nchatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = nchatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC20BF1B1AC0C26200720CD5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC20BF1C1AC0C26200720CD5 /* nchatTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nchatTests.swift; sourceTree = "<group>"; };
+		EC8014B61AC2F40400F4434B /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		ECB77A3A1AC0D4A900630478 /* nchat-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "nchat-Bridging-Header.h"; sourceTree = "<group>"; };
 		F4E072E75824E9C579F4766F /* Pods-nchat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nchat.release.xcconfig"; path = "Pods/Target Support Files/Pods-nchat/Pods-nchat.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -99,6 +101,7 @@
 				EC20BF061AC0C26200720CD5 /* AppDelegate.swift */,
 				EC20BF081AC0C26200720CD5 /* ViewController.swift */,
 				EC0508C31AC1A794009DB506 /* Socket.swift */,
+				EC8014B61AC2F40400F4434B /* Message.swift */,
 				EC20BF0A1AC0C26200720CD5 /* Main.storyboard */,
 				EC20BF0D1AC0C26200720CD5 /* Images.xcassets */,
 				EC20BF0F1AC0C26200720CD5 /* LaunchScreen.xib */,
@@ -277,6 +280,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC20BF091AC0C26200720CD5 /* ViewController.swift in Sources */,
+				EC8014B71AC2F40400F4434B /* Message.swift in Sources */,
 				EC20BF071AC0C26200720CD5 /* AppDelegate.swift in Sources */,
 				EC0508C41AC1A794009DB506 /* Socket.swift in Sources */,
 			);

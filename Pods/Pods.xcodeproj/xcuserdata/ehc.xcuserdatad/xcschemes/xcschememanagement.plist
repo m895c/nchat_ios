@@ -4,6 +4,16 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Pods-nchat-JSQMessagesViewController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-nchat-JSQSystemSoundPlayer.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-nchat-SIOSocket.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -17,12 +27,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>5D34A044BFB66CC27265AB04</key>
+		<key>0B2B0836DA2185BC22857ECB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7B63D9AE2411B9B89E8E2A31</key>
+		<key>2E12126B2CC0E4B515CD0C4C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6503B5A98FE65657D907368F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>823D95E469599AA840A9FEBC</key>
 		<dict>
 			<key>primary</key>
 			<true/>

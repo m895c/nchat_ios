@@ -10,5 +10,6 @@
 #define _nchat_Bridging_Header_h
 
 #import <SIOSocket/SIOSocket.h>
+#import <JSQMessagesViewController/JSQMessages.h>
 
 #endif
