@@ -10,5 +10,6 @@
 #define _nchat_Bridging_Header_h
 
 #import <JSQMessagesViewController/JSQMessages.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
 
 #endif
