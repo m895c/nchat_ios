@@ -11,12 +11,16 @@ import Foundation
 
 class ViewController: JSQMessagesViewController {
     
-    var socket : SIOSocket?
-
+    var socket : Socket?
+    
     var messages = [Message]()
     
     func receiveMessage(message : String) {
-        //TODO: self.messages.text = self.messages.text! + "\n" + message
+        let message = Message(text: message, senderName: "In")
+        self.messages.append(message)
+        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            self.finishReceivingMessageAnimated(true)
+        })
     }
     
     func senderId() -> String {
@@ -29,10 +33,10 @@ class ViewController: JSQMessagesViewController {
     
     func sendMessage(text: String!, senderId: String!, senderDisplayName: String!, date: NSDate!) {
         
-        let message = Message(text: text, senderName: senderDisplayName)
-        self.messages.append(message)
+        //let message = Message(text: text, senderName: senderDisplayName)
+        //self.messages.append(message)
         
-        println("sent message with: \(text)")
+        socket!.sendMessage(text)
     }
     
     override func viewDidLoad() {
@@ -42,6 +46,8 @@ class ViewController: JSQMessagesViewController {
         // messageInput.delegate = self
         
         //starting messages
+        self.socket = Socket(receiveMessage)
+        
         let m1 = Message(text: "Hi Evning this is the internet", senderName: "Ananth")
 
         self.messages.append(m1)
@@ -49,7 +55,6 @@ class ViewController: JSQMessagesViewController {
         
         let automaticallyScrollsToMostRecentMessage = true
         
-        let s = Socket(receiveMessage)
         
     }
 
@@ -99,7 +104,6 @@ class ViewController: JSQMessagesViewController {
             return JSQMessagesBubbleImageFactory().incomingMessagesBubbleImageWithColor(UIColor.jsq_messageBubbleLightGrayColor())
         }
         
-        return JSQMessagesBubbleImageFactory().incomingMessagesBubbleImageWithColor(UIColor.jsq_messageBubbleLightGrayColor())
         return JSQMessagesBubbleImageFactory().outgoingMessagesBubbleImageWithColor(UIColor.jsq_messageBubbleGreenColor())
     }
     

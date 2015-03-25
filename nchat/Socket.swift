@@ -13,6 +13,10 @@ class Socket {
     
     let socketHost  = "http://localhost:3000"
     
+    func sendMessage(message : String) {
+        socket!.emit("chat message", args: [message])
+    }
+    
     init(newMessage : (String) -> () ) {
         SIOSocket.socketWithHost("http://localhost:3000") { (socket: SIOSocket!) in
             self.socket = socket
