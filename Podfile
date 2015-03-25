@@ -1,10 +1,9 @@
 # Uncomment this line to define a global platform for your project
+source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
+#use_frameworks!
 
 target 'nchat' do
-  pod 'SIOSocket', '~> 0.2.0'
-  
-  # For latest release in cocoapods
   pod 'JSQMessagesViewController'
 end
 

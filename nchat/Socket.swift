@@ -9,29 +9,20 @@
 import Foundation
 
 class Socket {
-    var socket : SIOSocket?
-    
-    let socketHost  = "http://localhost:3000"
+    let socketHost  = "localhost:3000"
+    let socket = SocketIOClient(socketURL: "localhost:3000")
     
     func sendMessage(message : String) {
-        socket!.emit("chat message", args: [message])
+        socket.emit("chat message", message)
     }
     
     init(newMessage : (String) -> () ) {
-        SIOSocket.socketWithHost("http://localhost:3000") { (socket: SIOSocket!) in
-            self.socket = socket
-            
-            socket.on("chat message", callback: { (args: [AnyObject]!)  in
-                let message : AnyObject = args[0]
-                
-                switch message {
-                case is NSString:
-                    let message_text = message as String
-                    newMessage(message_text)
-                default:
-                    println(args[0])
-                }
-            })
+        socket.on("chat message") {[weak self] data, ack in
+            if let name = data?[0] as? String {
+                newMessage(name)
+                println(data)
+            }
         }
+        socket.connect()
     }
 }

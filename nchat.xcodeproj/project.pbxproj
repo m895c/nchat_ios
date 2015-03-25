@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		67C01CBC81B5E3F8095515C3 /* libPods-nchat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 085DCF76897514FBC014242F /* libPods-nchat.a */; };
+		BEAAC17E51EFC423AF19C282 /* libPods-nchat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3DC156946D84900C267960A /* libPods-nchat.a */; };
 		EC0508C41AC1A794009DB506 /* Socket.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0508C31AC1A794009DB506 /* Socket.swift */; };
 		EC20BF071AC0C26200720CD5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC20BF061AC0C26200720CD5 /* AppDelegate.swift */; };
 		EC20BF091AC0C26200720CD5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC20BF081AC0C26200720CD5 /* ViewController.swift */; };
@@ -15,6 +15,16 @@
 		EC20BF0E1AC0C26200720CD5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC20BF0D1AC0C26200720CD5 /* Images.xcassets */; };
 		EC20BF111AC0C26200720CD5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC20BF0F1AC0C26200720CD5 /* LaunchScreen.xib */; };
 		EC20BF1D1AC0C26200720CD5 /* nchatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC20BF1C1AC0C26200720CD5 /* nchatTests.swift */; };
+		EC2869EE1AC358F60017A6EF /* SocketAckHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2869E41AC358F60017A6EF /* SocketAckHandler.swift */; };
+		EC2869EF1AC358F60017A6EF /* SocketEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2869E51AC358F60017A6EF /* SocketEngine.swift */; };
+		EC2869F01AC358F60017A6EF /* SocketEngineClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2869E61AC358F60017A6EF /* SocketEngineClient.swift */; };
+		EC2869F11AC358F60017A6EF /* SocketEventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2869E71AC358F60017A6EF /* SocketEventHandler.swift */; };
+		EC2869F21AC358F60017A6EF /* SocketFixUTF8.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2869E81AC358F60017A6EF /* SocketFixUTF8.swift */; };
+		EC2869F31AC358F60017A6EF /* SocketIOClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2869E91AC358F60017A6EF /* SocketIOClient.swift */; };
+		EC2869F41AC358F60017A6EF /* SocketPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2869EA1AC358F60017A6EF /* SocketPacket.swift */; };
+		EC2869F51AC358F60017A6EF /* SocketParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2869EB1AC358F60017A6EF /* SocketParser.swift */; };
+		EC2869F61AC358F60017A6EF /* SwiftRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2869EC1AC358F60017A6EF /* SwiftRegex.swift */; };
+		EC2869F71AC358F60017A6EF /* WebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2869ED1AC358F60017A6EF /* WebSocket.swift */; };
 		EC8014B71AC2F40400F4434B /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8014B61AC2F40400F4434B /* Message.swift */; };
 /* End PBXBuildFile section */
 
@@ -30,7 +40,7 @@
 
 /* Begin PBXFileReference section */
 		03565786A66A88129BA728E3 /* Pods-nchat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nchat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-nchat/Pods-nchat.debug.xcconfig"; sourceTree = "<group>"; };
-		085DCF76897514FBC014242F /* libPods-nchat.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-nchat.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3DC156946D84900C267960A /* libPods-nchat.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-nchat.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC0508C31AC1A794009DB506 /* Socket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Socket.swift; sourceTree = "<group>"; };
 		EC20BF011AC0C26200720CD5 /* nchat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nchat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC20BF051AC0C26200720CD5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -42,6 +52,16 @@
 		EC20BF161AC0C26200720CD5 /* nchatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = nchatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC20BF1B1AC0C26200720CD5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC20BF1C1AC0C26200720CD5 /* nchatTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nchatTests.swift; sourceTree = "<group>"; };
+		EC2869E41AC358F60017A6EF /* SocketAckHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketAckHandler.swift; sourceTree = "<group>"; };
+		EC2869E51AC358F60017A6EF /* SocketEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketEngine.swift; sourceTree = "<group>"; };
+		EC2869E61AC358F60017A6EF /* SocketEngineClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketEngineClient.swift; sourceTree = "<group>"; };
+		EC2869E71AC358F60017A6EF /* SocketEventHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketEventHandler.swift; sourceTree = "<group>"; };
+		EC2869E81AC358F60017A6EF /* SocketFixUTF8.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketFixUTF8.swift; sourceTree = "<group>"; };
+		EC2869E91AC358F60017A6EF /* SocketIOClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketIOClient.swift; sourceTree = "<group>"; };
+		EC2869EA1AC358F60017A6EF /* SocketPacket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketPacket.swift; sourceTree = "<group>"; };
+		EC2869EB1AC358F60017A6EF /* SocketParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketParser.swift; sourceTree = "<group>"; };
+		EC2869EC1AC358F60017A6EF /* SwiftRegex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftRegex.swift; sourceTree = "<group>"; };
+		EC2869ED1AC358F60017A6EF /* WebSocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebSocket.swift; sourceTree = "<group>"; };
 		EC8014B61AC2F40400F4434B /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		ECB77A3A1AC0D4A900630478 /* nchat-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "nchat-Bridging-Header.h"; sourceTree = "<group>"; };
 		F4E072E75824E9C579F4766F /* Pods-nchat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nchat.release.xcconfig"; path = "Pods/Target Support Files/Pods-nchat/Pods-nchat.release.xcconfig"; sourceTree = "<group>"; };
@@ -52,7 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				67C01CBC81B5E3F8095515C3 /* libPods-nchat.a in Frameworks */,
+				BEAAC17E51EFC423AF19C282 /* libPods-nchat.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,10 +156,28 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		EC2869E31AC358F60017A6EF /* SwiftIO */ = {
+			isa = PBXGroup;
+			children = (
+				EC2869E41AC358F60017A6EF /* SocketAckHandler.swift */,
+				EC2869E51AC358F60017A6EF /* SocketEngine.swift */,
+				EC2869E61AC358F60017A6EF /* SocketEngineClient.swift */,
+				EC2869E71AC358F60017A6EF /* SocketEventHandler.swift */,
+				EC2869E81AC358F60017A6EF /* SocketFixUTF8.swift */,
+				EC2869E91AC358F60017A6EF /* SocketIOClient.swift */,
+				EC2869EA1AC358F60017A6EF /* SocketPacket.swift */,
+				EC2869EB1AC358F60017A6EF /* SocketParser.swift */,
+				EC2869EC1AC358F60017A6EF /* SwiftRegex.swift */,
+				EC2869ED1AC358F60017A6EF /* WebSocket.swift */,
+			);
+			path = SwiftIO;
+			sourceTree = "<group>";
+		};
 		F4847520859A7BC3EC7C85A2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				085DCF76897514FBC014242F /* libPods-nchat.a */,
+				EC2869E31AC358F60017A6EF /* SwiftIO */,
+				C3DC156946D84900C267960A /* libPods-nchat.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -279,10 +317,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC2869F21AC358F60017A6EF /* SocketFixUTF8.swift in Sources */,
+				EC2869F01AC358F60017A6EF /* SocketEngineClient.swift in Sources */,
+				EC2869EF1AC358F60017A6EF /* SocketEngine.swift in Sources */,
+				EC2869EE1AC358F60017A6EF /* SocketAckHandler.swift in Sources */,
 				EC20BF091AC0C26200720CD5 /* ViewController.swift in Sources */,
+				EC2869F41AC358F60017A6EF /* SocketPacket.swift in Sources */,
+				EC2869F61AC358F60017A6EF /* SwiftRegex.swift in Sources */,
+				EC2869F31AC358F60017A6EF /* SocketIOClient.swift in Sources */,
+				EC2869F11AC358F60017A6EF /* SocketEventHandler.swift in Sources */,
 				EC8014B71AC2F40400F4434B /* Message.swift in Sources */,
 				EC20BF071AC0C26200720CD5 /* AppDelegate.swift in Sources */,
 				EC0508C41AC1A794009DB506 /* Socket.swift in Sources */,
+				EC2869F51AC358F60017A6EF /* SocketParser.swift in Sources */,
+				EC2869F71AC358F60017A6EF /* WebSocket.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

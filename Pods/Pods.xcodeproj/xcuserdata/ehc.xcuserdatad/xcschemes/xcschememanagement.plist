@@ -14,11 +14,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-nchat-SIOSocket.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-nchat.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,22 +22,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0B2B0836DA2185BC22857ECB</key>
+		<key>370570AB4D6B9545430B5565</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2E12126B2CC0E4B515CD0C4C</key>
+		<key>9A42B4CC1E129A0CB0FC18F7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6503B5A98FE65657D907368F</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>823D95E469599AA840A9FEBC</key>
+		<key>AA7F922DBAC4F23DCF290900</key>
 		<dict>
 			<key>primary</key>
 			<true/>
