@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="dVy-m0-fy0">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
@@ -20,10 +20,58 @@
                             <accessibilityTraits key="traits" none="YES" button="YES"/>
                         </accessibility>
                     </view>
+                    <navigationItem key="navigationItem" id="9sx-D0-XuU"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="90" y="317"/>
+            <point key="canvasLocation" x="1030" y="1021"/>
+        </scene>
+        <!--Facebook Login View Controller-->
+        <scene sceneID="ENY-W8-2aK">
+            <objects>
+                <viewController id="Ado-1m-APT" customClass="FacebookLoginViewController" customModule="nchat" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="E6m-c0-Uxd"/>
+                        <viewControllerLayoutGuide type="bottom" id="ejj-dJ-Tnn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="F6Y-c7-yAe">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gG0-ym-HAN" customClass="FBLoginView">
+                                <rect key="frame" x="60" y="234" width="200" height="100"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="OnY-yW-tlO"/>
+                    <connections>
+                        <outlet property="fbLoginView" destination="gG0-ym-HAN" id="WMz-Bs-Tdq"/>
+                        <segue destination="BYZ-38-t0r" kind="push" identifier="loginToChatViewSegue" id="e2K-Y5-Yvr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RJA-UP-58q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="612" y="1021"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="l50-ws-NGL">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dVy-m0-fy0" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="LBX-9t-7lm">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Ado-1m-APT" kind="relationship" relationship="rootViewController" id="6Ge-21-57D"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ybu-Ig-Tp6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="80" y="1021"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

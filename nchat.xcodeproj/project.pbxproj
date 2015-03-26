@@ -25,6 +25,7 @@
 		EC2869F51AC358F60017A6EF /* SocketParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2869EB1AC358F60017A6EF /* SocketParser.swift */; };
 		EC2869F61AC358F60017A6EF /* SwiftRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2869EC1AC358F60017A6EF /* SwiftRegex.swift */; };
 		EC2869F71AC358F60017A6EF /* WebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2869ED1AC358F60017A6EF /* WebSocket.swift */; };
+		EC2869F91AC363600017A6EF /* FacebookLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2869F81AC363600017A6EF /* FacebookLoginViewController.swift */; };
 		EC8014B71AC2F40400F4434B /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8014B61AC2F40400F4434B /* Message.swift */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +63,7 @@
 		EC2869EB1AC358F60017A6EF /* SocketParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketParser.swift; sourceTree = "<group>"; };
 		EC2869EC1AC358F60017A6EF /* SwiftRegex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftRegex.swift; sourceTree = "<group>"; };
 		EC2869ED1AC358F60017A6EF /* WebSocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebSocket.swift; sourceTree = "<group>"; };
+		EC2869F81AC363600017A6EF /* FacebookLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookLoginViewController.swift; sourceTree = "<group>"; };
 		EC8014B61AC2F40400F4434B /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		ECB77A3A1AC0D4A900630478 /* nchat-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "nchat-Bridging-Header.h"; sourceTree = "<group>"; };
 		F4E072E75824E9C579F4766F /* Pods-nchat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nchat.release.xcconfig"; path = "Pods/Target Support Files/Pods-nchat/Pods-nchat.release.xcconfig"; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 			children = (
 				EC20BF061AC0C26200720CD5 /* AppDelegate.swift */,
 				EC20BF081AC0C26200720CD5 /* ViewController.swift */,
+				EC2869F81AC363600017A6EF /* FacebookLoginViewController.swift */,
 				EC0508C31AC1A794009DB506 /* Socket.swift */,
 				EC8014B61AC2F40400F4434B /* Message.swift */,
 				EC20BF0A1AC0C26200720CD5 /* Main.storyboard */,
@@ -319,6 +322,7 @@
 			files = (
 				EC2869F21AC358F60017A6EF /* SocketFixUTF8.swift in Sources */,
 				EC2869F01AC358F60017A6EF /* SocketEngineClient.swift in Sources */,
+				EC2869F91AC363600017A6EF /* FacebookLoginViewController.swift in Sources */,
 				EC2869EF1AC358F60017A6EF /* SocketEngine.swift in Sources */,
 				EC2869EE1AC358F60017A6EF /* SocketAckHandler.swift in Sources */,
 				EC20BF091AC0C26200720CD5 /* ViewController.swift in Sources */,
