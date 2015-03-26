@@ -9,14 +9,15 @@
 import UIKit
 import Foundation
 
-class ViewController: JSQMessagesViewController {
+class MessagesViewController: JSQMessagesViewController {
     
     var socket : Socket?
+    var fbUser : FBGraphUser?
     
     var messages = [Message]()
     
-    func receiveMessage(message : String) {
-        let message = Message(text: message, senderName: "In")
+    func receiveMessage(message : String, senderId: String) {
+        let message = Message(text: message, senderId: senderId)
         self.messages.append(message)
         dispatch_async(dispatch_get_main_queue(), { () -> Void in
             self.finishReceivingMessageAnimated(true)
@@ -24,11 +25,16 @@ class ViewController: JSQMessagesViewController {
     }
     
     func senderId() -> String {
-        return "0"
+        if let id = fbUser?.objectForKey("id") as? NSString {
+            return id
+        } else {
+            println("id was nil for fbUser with: \(fbUser)")
+            return "11359"
+        }
     }
     
     func senderDisplayName() -> String {
-        return "Evan"
+        return fbUser?.objectForKey("name") as NSString
     }
     
     func sendMessage(text: String!, senderId: String!, senderDisplayName: String!, date: NSDate!) {
@@ -36,7 +42,7 @@ class ViewController: JSQMessagesViewController {
         //let message = Message(text: text, senderName: senderDisplayName)
         //self.messages.append(message)
         
-        socket!.sendMessage(text)
+        socket!.sendMessage(text, senderId: senderId, senderDisplayName: senderDisplayName, date: date)
     }
     
     override func viewDidLoad() {
@@ -46,16 +52,10 @@ class ViewController: JSQMessagesViewController {
         // messageInput.delegate = self
         
         //starting messages
+        
         self.socket = Socket(receiveMessage)
         
-        let m1 = Message(text: "Hi Evning this is the internet", senderName: "Ananth")
-
-        self.messages.append(m1)
-        self.finishReceivingMessage()
-        
         let automaticallyScrollsToMostRecentMessage = true
-        
-        
     }
 
     override func didReceiveMemoryWarning() {

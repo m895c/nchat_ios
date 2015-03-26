@@ -12,6 +12,8 @@ class FacebookLoginViewController: UIViewController, FBLoginViewDelegate {
 
     @IBOutlet var fbLoginView : FBLoginView!
     
+    var fbUser : FBGraphUser?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,14 +27,15 @@ class FacebookLoginViewController: UIViewController, FBLoginViewDelegate {
     }
     
     func loginViewShowingLoggedInUser(loginView : FBLoginView!) {
-        println("User Logged In")
+        println("Calling loginViewShowingLoggedInUser")
         self.performSegueWithIdentifier("loginToChatViewSegue", sender: nil)
-        println("This is where you perform a segue.")
     }
     
     func loginViewFetchedUserInfo(loginView : FBLoginView!, user: FBGraphUser){
-        
-        println("User Name: \(user.name)")
+        println("Calling loginViewFetchedUserInfo")
+        println("storing the fbUser data")
+        self.fbUser = user
+        println("fetching stored fbUser data: contains \(self.fbUser)")
     }
     
     func loginViewShowingLoggedOutUser(loginView : FBLoginView!) {
@@ -49,14 +52,13 @@ class FacebookLoginViewController: UIViewController, FBLoginViewDelegate {
     }
     
 
-    /*
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "loginToChatViewSegue" {
+            let MessagesVC = segue.destinationViewController as MessagesViewController
+            MessagesVC.fbUser = self.fbUser
+            
+        }
     }
-    */
-
 }

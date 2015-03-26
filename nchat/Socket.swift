@@ -12,15 +12,17 @@ class Socket {
     let socketHost  = "localhost:3000"
     let socket = SocketIOClient(socketURL: "localhost:3000")
     
-    func sendMessage(message : String) {
-        socket.emit("chat message", message)
+    func sendMessage(text: String!, senderId: String!, senderDisplayName: String!, date: NSDate!) {
+        let messageDict = ["text": text, "senderId": senderId ]
+        socket.emit("chat message", messageDict)
     }
     
-    init(newMessage : (String) -> () ) {
+    init(newMessage : (String, String) -> () ) {
         socket.on("chat message") {[weak self] data, ack in
-            if let name = data?[0] as? String {
-                newMessage(name)
-                println(data)
+            if let dict = data?[0] as? NSDictionary {
+                let message = dict["text"] as String
+                let senderId = dict["senderId"] as String
+                newMessage(message, senderId)
             }
         }
         socket.connect()
