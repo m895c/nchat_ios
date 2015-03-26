@@ -36,7 +36,7 @@ class Message : NSObject, JSQMessageData {
         return senderId_
     }
     func senderDisplayName() -> String! {
-        return "Ananth"
+        return senderDisplayName_
     }
     
     func date() -> NSDate! {
