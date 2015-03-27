@@ -16,13 +16,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RPn-X9-aaV">
-                                <rect key="frame" x="108" y="269" width="105" height="30"/>
-                                <state key="normal" title="Start New Chat">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RPn-X9-aaV">
+                                <rect key="frame" x="85" y="263" width="150" height="42"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="25"/>
+                                <state key="normal" title="Search!">
+                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="dMk-uW-YMb" kind="push" identifier="startChatToMessagesSegue" id="pAz-Fa-YYz"/>
+                                    <action selector="searchButtonClicked" destination="BYZ-38-t0r" eventType="touchUpInside" id="VBn-cu-LHL"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -30,12 +32,19 @@
                         <accessibility key="accessibilityConfiguration">
                             <accessibilityTraits key="traits" none="YES" button="YES"/>
                         </accessibility>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="RPn-X9-aaV" secondAttribute="centerX" id="eid-Rm-yYB"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="9sx-D0-XuU"/>
+                    <connections>
+                        <outlet property="searchButton" destination="RPn-X9-aaV" id="kdV-8x-Oub"/>
+                        <segue destination="dMk-uW-YMb" kind="push" identifier="startChatToMessagesSegue" id="p5y-SS-GgM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1010" y="1021"/>
+            <point key="canvasLocation" x="1022" y="1021"/>
         </scene>
         <!--Messages View Controller-->
         <scene sceneID="7mF-7f-QCS">
@@ -69,7 +78,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gG0-ym-HAN" customClass="FBSDKLoginButton">
-                                <rect key="frame" x="10" y="177" width="300" height="50"/>
+                                <rect key="frame" x="60" y="175" width="200" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>

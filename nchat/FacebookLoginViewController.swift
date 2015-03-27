@@ -51,8 +51,6 @@ class FacebookLoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     func fetchFBProfile(closure : () -> ()) {
         let token = FBSDKAccessToken.currentAccessToken()
         if token != nil {
-            println("Already have FB access token: \(token.tokenString)")
-            
             let request = FBSDKGraphRequest(graphPath: "me", parameters: nil).startWithCompletionHandler(
                 { (connection: FBSDKGraphRequestConnection!, result: AnyObject!, error: NSError!) -> Void in
                     println("invoke: fbGetProfile callback")
@@ -69,8 +67,7 @@ class FacebookLoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     
     func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
         println("invoke: loginButton\n result: \(result)")
-        segueToMessagesView()
-    }
+        segueToMessagesView() }
     
     func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
        println("invoke: loginButtonDidLogOut")

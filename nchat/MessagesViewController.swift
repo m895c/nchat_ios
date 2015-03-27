@@ -18,6 +18,7 @@ class MessagesViewController: JSQMessagesViewController {
     var socket : Socket?
     
     var fbProfile : NSDictionary?
+    var roomTarget : String = ""
     
     var messages = [Message]()
     
@@ -30,13 +31,10 @@ class MessagesViewController: JSQMessagesViewController {
     }
     
     func senderId() -> String {
-        //if let id = fbProfile?.objectForKey("id") as? String {
-        //    return id
-        //} else {
-        //    println("id was nil for fbProfile with: \(fbProfile)")
-        //    return "11359"
-        //}
-        return "senderID"
+        let fbID = fbProfile?["id"]! as NSString
+        
+        // THIS IS BAD: We don't want other clients to actually see this info
+        return fbID.substringWithRange(NSRange(location: 0, length: 10))
     }
     
     func senderDisplayName() -> String {
@@ -46,20 +44,11 @@ class MessagesViewController: JSQMessagesViewController {
     }
     
     func sendMessage(text: String!, senderId: String!, senderDisplayName: String!, date: NSDate!) {
-        println("invoke: sendMessage")
-        socket?.sendMessage(text, senderId: senderId, senderDisplayName: senderDisplayName, date: date)
+        
+        receiveMessage(text, senderId: senderId)
+        
+        socket?.sendMessage(text, senderId: senderId, senderDisplayName: senderDisplayName, date: date, roomTarget: roomTarget)
     }
-    
-    func userInfo() -> Dictionary<String,String?> {
-        let infoDict : [String :String?] = [ "test" : "test"]
-        //    "name": fbProfile.name,
-        //    "age": "27",//fbProfile?.age?
-        //    "sex": "1",
-        //    "target": "0"]
-        return infoDict
-
-    }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()

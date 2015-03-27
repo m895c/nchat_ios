@@ -13,8 +13,33 @@ class StartChatViewController: UIViewController {
     var fbProfile : NSDictionary?
     
     let nextSegue = "startChatToMessagesSegue"
+    
+    var roomTarget : String = ""
 
+    @IBOutlet weak var searchButton: UIButton!
+    
     var socket : Socket?
+    
+    @IBAction func searchButtonClicked() {
+        // Send Search message
+        
+        searchButton.setTitle("Searching...", forState: .Normal)
+        
+        var spinner = UIActivityIndicatorView(frame: CGRectMake(0,0, 50, 50)) as UIActivityIndicatorView
+        spinner.center = self.view.center
+        spinner.hidesWhenStopped = true
+        spinner.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
+        view.addSubview(spinner)
+        spinner.startAnimating()
+        
+        searchButton.enabled = false
+        
+        socket?.sendSearch(fbProfile!) { (roomTarget : String) in
+            self.roomTarget = roomTarget
+            self.performSegueWithIdentifier(self.nextSegue, sender: nil)
+        }
+        
+    }
     
     func delay(delay:Double, closure:()->()) {
         dispatch_after(
@@ -56,6 +81,7 @@ class StartChatViewController: UIViewController {
             let MessagesVC = segue.destinationViewController as MessagesViewController
             MessagesVC.fbProfile = self.fbProfile
             MessagesVC.socket = self.socket
+            MessagesVC.roomTarget = self.roomTarget
         }
     }
 
