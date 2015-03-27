@@ -25,7 +25,7 @@ class MessagesViewController: JSQMessagesViewController {
     }
     
     func senderId() -> String {
-        if let id = fbUser?.objectForKey("id") as? NSString {
+        if let id = fbUser?.objectForKey("id") as? String {
             return id
         } else {
             println("id was nil for fbUser with: \(fbUser)")
@@ -34,15 +34,31 @@ class MessagesViewController: JSQMessagesViewController {
     }
     
     func senderDisplayName() -> String {
-        return fbUser?.objectForKey("name") as NSString
+        return fbUser?.objectForKey("name") as String
     }
     
     func sendMessage(text: String!, senderId: String!, senderDisplayName: String!, date: NSDate!) {
-        
-        //let message = Message(text: text, senderName: senderDisplayName)
-        //self.messages.append(message)
-        
         socket!.sendMessage(text, senderId: senderId, senderDisplayName: senderDisplayName, date: date)
+    }
+    
+    //func userInfo() -> Dictionary<String,String?> {
+    //    let infoDict : [String :String?] = [
+    //        "name": fbUser?.name!,
+    //        "age": "27",//fbUser?.age?
+    //        "sex": "1",
+    //        "target": "0"]
+    //    return infoDict
+
+    //}
+    
+    
+    func delay(delay:Double, closure:()->()) {
+        dispatch_after(
+            dispatch_time(
+                DISPATCH_TIME_NOW,
+                Int64(delay * Double(NSEC_PER_SEC))
+            ),
+            dispatch_get_main_queue(), closure)
     }
     
     override func viewDidLoad() {
@@ -53,7 +69,17 @@ class MessagesViewController: JSQMessagesViewController {
         
         //starting messages
         
-        self.socket = Socket(receiveMessage)
+        self.socket = Socket()
+        self.socket?.addChatMessageHandler(self.receiveMessage)
+        
+        let delayTime = dispatch_time(DISPATCH_TIME_NOW,
+            Int64(1 * Double(NSEC_PER_SEC)))
+        
+        delay(0.3) {
+            self.socket?.sendInfo(self.fbUser!)
+            // HACK to return optional nil
+            var s : String? = nil
+        }
         
         let automaticallyScrollsToMostRecentMessage = true
     }

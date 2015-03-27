@@ -27,10 +27,17 @@ class FacebookLoginViewController: UIViewController, FBLoginViewDelegate {
     }
     
     func loginViewShowingLoggedInUser(loginView : FBLoginView!) {
+        // THIS IS CALLED soemtimes before loginViewFetchedUserInfo
+        println("invoke: loginViewShowingLoggedInUser - performing segue")
+        if (fbUser != nil) {
         self.performSegueWithIdentifier("loginToChatViewSegue", sender: nil)
+        } else {
+            println("No FB User definied")
+        }
     }
     
     func loginViewFetchedUserInfo(loginView : FBLoginView!, user: FBGraphUser){
+        println("invoke: loginViewFetchedUserInfo - setting FBUser")
         self.fbUser = user
     }
     
