@@ -8,17 +8,29 @@
 
 import UIKit
 
-class FacebookLoginViewController: UIViewController, FBLoginViewDelegate {
+class FacebookLoginViewController: UIViewController, FBSDKLoginButtonDelegate {
 
-    @IBOutlet var fbLoginView : FBLoginView!
+    //@IBOutlet var fbLoginView : FBLoginView!
     
-    var fbUser : FBGraphUser?
+    @IBOutlet weak var fbLoginButton: FBSDKLoginButton!
+    
+    var fbProfile : FBSDKProfile?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.fbLoginView.delegate = self
-        self.fbLoginView.readPermissions = ["public_profile", "email", "user_friends"]
+        self.fbLoginButton.readPermissions = ["public_profile", "email", "user_friends"]
+        self.fbLoginButton.delegate = self
+        
+        let token = FBSDKAccessToken.currentAccessToken()
+        if token != nil {
+            // FBLoggedIn, segue to chat
+            segueToMessagesView()
+        }
+        
+        // FBSDKProfile.enableUpdatesOnAccessTokenChange(true)
+        
+        fbGetProfile()
 
         
         // Check if app is already logged in
@@ -26,28 +38,56 @@ class FacebookLoginViewController: UIViewController, FBLoginViewDelegate {
         // Do any additional setup after loading the view.
     }
     
-    func loginViewShowingLoggedInUser(loginView : FBLoginView!) {
-        // THIS IS CALLED soemtimes before loginViewFetchedUserInfo
-        println("invoke: loginViewShowingLoggedInUser - performing segue")
-        if (fbUser != nil) {
+    func segueToMessagesView() {
         self.performSegueWithIdentifier("loginToChatViewSegue", sender: nil)
-        } else {
-            println("No FB User definied")
+    }
+    
+    func fbGetProfile() {
+        let token = FBSDKAccessToken.currentAccessToken()
+        if token != nil {
+            println("Already have FB access token: \(token.tokenString)")
+            
+            let request = FBSDKGraphRequest(graphPath: "me", parameters: nil).startWithCompletionHandler(
+                { (connection: FBSDKGraphRequestConnection!, result: AnyObject!, error: NSError!) -> Void in
+                    println(connection)
+                    println(result)
+                    println(error)
+            })
         }
     }
     
-    func loginViewFetchedUserInfo(loginView : FBLoginView!, user: FBGraphUser){
-        println("invoke: loginViewFetchedUserInfo - setting FBUser")
-        self.fbUser = user
+    
+    func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
+        println("invoke: loginButton\n result: \(result)")
+        segueToMessagesView()
     }
     
-    func loginViewShowingLoggedOutUser(loginView : FBLoginView!) {
-        println("User Logged Out")
+    func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
+       println("invoke: loginButtonDidLogOut")
     }
     
-    func loginView(loginView : FBLoginView!, handleError:NSError) {
-        println("Error: \(handleError.localizedDescription)")
-    }
+    //func loginViewShowingLoggedInUser(loginView : FBLoginView!) {
+    //    // THIS IS CALLED soemtimes before loginViewFetchedUserInfo
+    //    println("invoke: loginViewShowingLoggedInUser - performing segue")
+    //    if (fbProfile != nil) {
+    //    self.performSegueWithIdentifier("loginToChatViewSegue", sender: nil)
+    //    } else {
+    //        println("No FB User definied")
+    //    }
+    //}
+    //
+    //func loginViewFetchedUserInfo(loginView : FBLoginView!, user: FBGraphUser){
+    //    println("invoke: loginViewFetchedUserInfo - setting FBUser")
+    //    self.fbProfile = user
+    //}
+    //
+    //func loginViewShowingLoggedOutUser(loginView : FBLoginView!) {
+    //    println("User Logged Out")
+    //}
+    //
+    //func loginView(loginView : FBLoginView!, handleError:NSError) {
+    //    println("Error: \(handleError.localizedDescription)")
+    //}
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -60,7 +100,7 @@ class FacebookLoginViewController: UIViewController, FBLoginViewDelegate {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "loginToChatViewSegue" {
             let MessagesVC = segue.destinationViewController as MessagesViewController
-            MessagesVC.fbUser = self.fbUser
+            MessagesVC.fbProfile = self.fbProfile
             
         }
     }

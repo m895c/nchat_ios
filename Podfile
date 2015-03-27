@@ -5,7 +5,7 @@ platform :ios, '8.0'
 
 target 'nchat' do
   pod 'JSQMessagesViewController'
-  pod 'Facebook-iOS-SDK', '~>3.22'
+  pod 'Facebook-iOS-SDK'
 end
 
 target 'nchatTests' do

@@ -18,7 +18,7 @@ class Socket {
     }
     
 
-    func sendInfo(info : FBGraphUser) -> () {
+    func sendInfo(info : FBSDKProfile) -> () {
         println("invoke Socket: sendInfo")
         let infoDict : [String : String] = [
             "name": info.name!,

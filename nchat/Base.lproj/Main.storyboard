@@ -38,8 +38,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gG0-ym-HAN" customClass="FBLoginView">
-                                <rect key="frame" x="60" y="234" width="200" height="100"/>
+                            <view contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gG0-ym-HAN" customClass="FBSDKLoginButton">
+                                <rect key="frame" x="10" y="177" width="300" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
@@ -47,7 +47,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="OnY-yW-tlO"/>
                     <connections>
-                        <outlet property="fbLoginView" destination="gG0-ym-HAN" id="WMz-Bs-Tdq"/>
+                        <outlet property="fbLoginButton" destination="gG0-ym-HAN" id="JIu-eG-hRx"/>
                         <segue destination="BYZ-38-t0r" kind="push" identifier="loginToChatViewSegue" id="e2K-Y5-Yvr"/>
                     </connections>
                 </viewController>

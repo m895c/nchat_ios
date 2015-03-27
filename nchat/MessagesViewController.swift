@@ -12,7 +12,7 @@ import Foundation
 class MessagesViewController: JSQMessagesViewController {
     
     var socket : Socket?
-    var fbUser : FBGraphUser?
+    var fbProfile : FBSDKProfile?
     
     var messages = [Message]()
     
@@ -25,31 +25,33 @@ class MessagesViewController: JSQMessagesViewController {
     }
     
     func senderId() -> String {
-        if let id = fbUser?.objectForKey("id") as? String {
-            return id
-        } else {
-            println("id was nil for fbUser with: \(fbUser)")
-            return "11359"
-        }
+        //if let id = fbProfile?.objectForKey("id") as? String {
+        //    return id
+        //} else {
+        //    println("id was nil for fbProfile with: \(fbProfile)")
+        //    return "11359"
+        //}
+        return "senderID"
     }
     
     func senderDisplayName() -> String {
-        return fbUser?.objectForKey("name") as String
+        //return fbProfile?.objectForKey("name") as String
+        return "displayName"
     }
     
     func sendMessage(text: String!, senderId: String!, senderDisplayName: String!, date: NSDate!) {
         socket!.sendMessage(text, senderId: senderId, senderDisplayName: senderDisplayName, date: date)
     }
     
-    //func userInfo() -> Dictionary<String,String?> {
-    //    let infoDict : [String :String?] = [
-    //        "name": fbUser?.name!,
-    //        "age": "27",//fbUser?.age?
-    //        "sex": "1",
-    //        "target": "0"]
-    //    return infoDict
+    func userInfo() -> Dictionary<String,String?> {
+        let infoDict : [String :String?] = [
+            "name": fbProfile?.name!,
+            "age": "27",//fbProfile?.age?
+            "sex": "1",
+            "target": "0"]
+        return infoDict
 
-    //}
+    }
     
     
     func delay(delay:Double, closure:()->()) {
@@ -76,7 +78,7 @@ class MessagesViewController: JSQMessagesViewController {
             Int64(1 * Double(NSEC_PER_SEC)))
         
         delay(0.3) {
-            self.socket?.sendInfo(self.fbUser!)
+            self.socket?.sendInfo(self.fbProfile!)
             // HACK to return optional nil
             var s : String? = nil
         }
