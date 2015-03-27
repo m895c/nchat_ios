@@ -18,15 +18,18 @@ class Socket {
     }
     
 
-    func sendInfo(info : FBSDKProfile) -> () {
-        println("invoke Socket: sendInfo")
+    func sendInfo(info : NSDictionary) -> () {
+        let name = info["name"]! as String
+        let age = "27"
+        let sex = info["gender"]! as String
+        let target = "!\(sex)"
+        
         let infoDict : [String : String] = [
-            "name": info.name!,
-            "age": "27",//fbUser?.age?
-            "sex": "1",
-            "target": "0"
+            "name": name,
+            "age": age,
+            "sex": sex,
+            "target": target
         ]
-        println("Here is called: emiting info \(infoDict)")
         socket.emit("info", infoDict)
     }
     

@@ -10,9 +10,14 @@ import UIKit
 import Foundation
 
 class MessagesViewController: JSQMessagesViewController {
+
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
     
     var socket : Socket?
-    var fbProfile : FBSDKProfile?
+    
+    var fbProfile : NSDictionary?
     
     var messages = [Message]()
     
@@ -35,33 +40,26 @@ class MessagesViewController: JSQMessagesViewController {
     }
     
     func senderDisplayName() -> String {
-        //return fbProfile?.objectForKey("name") as String
-        return "displayName"
+        let name = fbProfile?["name"]! as NSString
+        let firstInitial = name.substringWithRange(NSRange(location: 0, length: 1))
+        return firstInitial
     }
     
     func sendMessage(text: String!, senderId: String!, senderDisplayName: String!, date: NSDate!) {
-        socket!.sendMessage(text, senderId: senderId, senderDisplayName: senderDisplayName, date: date)
+        println("invoke: sendMessage")
+        socket?.sendMessage(text, senderId: senderId, senderDisplayName: senderDisplayName, date: date)
     }
     
     func userInfo() -> Dictionary<String,String?> {
-        let infoDict : [String :String?] = [
-            "name": fbProfile?.name!,
-            "age": "27",//fbProfile?.age?
-            "sex": "1",
-            "target": "0"]
+        let infoDict : [String :String?] = [ "test" : "test"]
+        //    "name": fbProfile.name,
+        //    "age": "27",//fbProfile?.age?
+        //    "sex": "1",
+        //    "target": "0"]
         return infoDict
 
     }
     
-    
-    func delay(delay:Double, closure:()->()) {
-        dispatch_after(
-            dispatch_time(
-                DISPATCH_TIME_NOW,
-                Int64(delay * Double(NSEC_PER_SEC))
-            ),
-            dispatch_get_main_queue(), closure)
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,17 +69,7 @@ class MessagesViewController: JSQMessagesViewController {
         
         //starting messages
         
-        self.socket = Socket()
-        self.socket?.addChatMessageHandler(self.receiveMessage)
-        
-        let delayTime = dispatch_time(DISPATCH_TIME_NOW,
-            Int64(1 * Double(NSEC_PER_SEC)))
-        
-        delay(0.3) {
-            self.socket?.sendInfo(self.fbProfile!)
-            // HACK to return optional nil
-            var s : String? = nil
-        }
+        socket?.addChatMessageHandler(self.receiveMessage)
         
         let automaticallyScrollsToMostRecentMessage = true
     }

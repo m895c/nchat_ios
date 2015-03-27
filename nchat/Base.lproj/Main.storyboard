@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <scenes>
-        <!--Messages View Controller-->
+        <!--Start Chat View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MessagesViewController" customModule="nchat" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="StartChatViewController" customModule="nchat" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,6 +15,17 @@
                     <view key="view" contentMode="center" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RPn-X9-aaV">
+                                <rect key="frame" x="108" y="269" width="105" height="30"/>
+                                <state key="normal" title="Start New Chat">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="dMk-uW-YMb" kind="push" identifier="startChatToMessagesSegue" id="pAz-Fa-YYz"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <accessibility key="accessibilityConfiguration">
                             <accessibilityTraits key="traits" none="YES" button="YES"/>
@@ -24,7 +35,26 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1030" y="1021"/>
+            <point key="canvasLocation" x="1010" y="1021"/>
+        </scene>
+        <!--Messages View Controller-->
+        <scene sceneID="7mF-7f-QCS">
+            <objects>
+                <viewController id="dMk-uW-YMb" customClass="MessagesViewController" customModule="nchat" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vFy-pE-3sF"/>
+                        <viewControllerLayoutGuide type="bottom" id="WPd-UH-stu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2Lm-CT-hXj">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="lGd-ko-Jyw"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wWF-kz-yEO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1456" y="1021"/>
         </scene>
         <!--Facebook Login View Controller-->
         <scene sceneID="ENY-W8-2aK">
@@ -53,7 +83,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RJA-UP-58q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="568" y="1021"/>
+            <point key="canvasLocation" x="544" y="1021"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="l50-ws-NGL">
