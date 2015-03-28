@@ -16,14 +16,53 @@ class FacebookLoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     
     var fbProfile : NSDictionary?
     
-    let nextSegue = "loginToChatViewSegue"
+    let nextSegue = "ToMessagesSegue"
+    
+    var roomTarget : String = ""
+    
+    @IBOutlet weak var searchButton: UIButton!
+    
+    var socket : Socket?
+    
+    @IBAction func searchButtonClicked() {
+        // Send Search message
+        
+        searchButton.setTitle("Searching...", forState: .Normal)
+        
+        var spinner = UIActivityIndicatorView(frame: CGRectMake(0,0, 50, 50)) as UIActivityIndicatorView
+        spinner.center = self.view.center
+        spinner.hidesWhenStopped = true
+        spinner.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
+        view.addSubview(spinner)
+        spinner.startAnimating()
+        
+        searchButton.enabled = false
+        
+        socket?.sendSearch(fbProfile!) { (roomTarget : String) in
+            
+            let delegate = UIApplication.sharedApplication().delegate as AppDelegate
+            
+            if delegate.inChatConversation == false {
+                self.roomTarget = roomTarget
+                self.performSegueWithIdentifier(self.nextSegue, sender: nil)
+                delegate.inChatConversation = true
+            }
+            
+            // Reset searchButton
+            self.searchButton.enabled = true
+            spinner.stopAnimating()
+            self.searchButton.setTitle("Search again", forState: .Normal)
+            
+        }
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.socket = Socket()
         
         self.fbLoginButton.readPermissions = ["public_profile", "email", "user_friends"]
         self.fbLoginButton.delegate = self
-        
         
         let token = FBSDKAccessToken.currentAccessToken()
         if token != nil {
@@ -31,13 +70,6 @@ class FacebookLoginViewController: UIViewController, FBSDKLoginButtonDelegate {
             
             fetchFBProfile()
         }
-        
-        // FBSDKProfile.enableUpdatesOnAccessTokenChange(true)
-        
-        
-        // Check if app is already logged in
-        
-        // Do any additional setup after loading the view.
     }
     
     func segueToMessagesView() {
@@ -50,13 +82,13 @@ class FacebookLoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         if token != nil {
             let request = FBSDKGraphRequest(graphPath: "me", parameters: nil).startWithCompletionHandler(
                 { (connection: FBSDKGraphRequestConnection!, result: AnyObject!, error: NSError!) -> Void in
-                    println("invoke: fbGetProfile callback")
                     if error == nil {
                         self.fbProfile = result as? NSDictionary
+                        println("invoke: fbGetProfile with data: \(self.fbProfile)")
                     } else {
                         println("Error occured fetching data")
                     }
-                self.segueToMessagesView()
+                self.socket?.sendInfo(self.fbProfile!)
             })
         }
     }
@@ -103,9 +135,23 @@ class FacebookLoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == nextSegue {
-            let StartChatVC = segue.destinationViewController as StartChatViewController
-            StartChatVC.fbProfile = self.fbProfile
-            
+            let MessagesVC = segue.destinationViewController as MessagesViewController
+            MessagesVC.fbProfile = self.fbProfile
+            MessagesVC.socket = self.socket
+            MessagesVC.roomTarget = self.roomTarget
         }
     }
+    
+    
+    // UTIL Functions
+    
+    func delay(delay:Double, closure:()->()) {
+        dispatch_after(
+            dispatch_time(
+                DISPATCH_TIME_NOW,
+                Int64(delay * Double(NSEC_PER_SEC))
+            ),
+            dispatch_get_main_queue(), closure)
+    }
+    
 }

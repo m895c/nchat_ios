@@ -54,14 +54,22 @@ class MessagesViewController: JSQMessagesViewController {
         socket?.addChatMessageHandler(self.receiveMessage)
         
         socket?.addTimeUpHandler() {
-            let alertController = UIAlertController(title: "Time Up", message:
-                "The clock has ran out.", preferredStyle: UIAlertControllerStyle.Alert)
-            alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default,handler: nil))
-            
-            self.presentViewController(alertController, animated: true, completion: {
-                println("dismiss called")
+            dispatch_after(0, dispatch_get_main_queue(), { () -> Void in
+                let alertController = UIAlertController(title: "Time Up", message:
+                    "The clock has ran out.", preferredStyle: .Alert)
+                alertController.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { alert in
+                    self.navigationController?.popViewControllerAnimated(true)
+                    ()
+                }))
+                
+                self.navigationController?.presentViewController(alertController, animated: true, completion: nil)
             })
         }
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        var delegate = UIApplication.sharedApplication().delegate as AppDelegate
+        delegate.inChatConversation = false
     }
     
     override func viewDidLoad() {

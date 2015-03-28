@@ -19,7 +19,14 @@ class Socket {
 
     func sendSearch(info : NSDictionary, onMatchHandler: (String) -> ()) -> () {
         addMatchHandler(onMatchHandler)
+        println("invoke: sendSearch")
         socket.emit("search", extractFbInfo(info))
+    }
+    
+    func sendInfo(info : NSDictionary) -> () {
+        let fbInfo = extractFbInfo(info)
+        println("invoke: sendInfo with\(fbInfo)")
+        socket.emit("info", fbInfo)
     }
     
     func addMatchHandler(handler: (String) -> ()) {
@@ -64,12 +71,6 @@ class Socket {
         ]
     }
     
-    
-    func sendInfo(info : NSDictionary) -> () {
-        let fbInfo = extractFbInfo(info)
-        println("invoke: sendInfo with\(fbInfo)")
-        socket.emit("info", fbInfo)
-    }
     
     func addTimeUpHandler(callback : () -> ()) ->() {
         socket.on("timeUp") { [weak self] data, ack in
