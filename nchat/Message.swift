@@ -15,8 +15,8 @@ class Message : NSObject, JSQMessageData {
     var date_: NSDate
     var imageUrl_: String?
     
-    convenience init(text: String?, senderId: String) {
-        self.init(text: text, senderId: senderId, senderDisplayName: senderId, imageUrl: nil)
+    convenience init(text: String?, senderId: String, senderDisplayName: String) {
+        self.init(text: text, senderId: senderId, senderDisplayName: senderDisplayName, imageUrl: nil)
     }
     
     init(text: String?, senderId: String?, senderDisplayName: String?, imageUrl: String?) {

@@ -29,10 +29,7 @@ class FacebookLoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         if token != nil {
             // FBLoggedIn, segue to chat
             
-            
-            fetchFBProfile() {
-                self.segueToMessagesView()
-            }
+            fetchFBProfile()
         }
         
         // FBSDKProfile.enableUpdatesOnAccessTokenChange(true)
@@ -48,7 +45,7 @@ class FacebookLoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         self.performSegueWithIdentifier(nextSegue, sender: nil)
     }
     
-    func fetchFBProfile(closure : () -> ()) {
+    func fetchFBProfile() {
         let token = FBSDKAccessToken.currentAccessToken()
         if token != nil {
             let request = FBSDKGraphRequest(graphPath: "me", parameters: nil).startWithCompletionHandler(
@@ -59,7 +56,7 @@ class FacebookLoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                     } else {
                         println("Error occured fetching data")
                     }
-                closure()
+                self.segueToMessagesView()
             })
         }
     }
@@ -67,7 +64,8 @@ class FacebookLoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     
     func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
         println("invoke: loginButton\n result: \(result)")
-        segueToMessagesView() }
+        fetchFBProfile()
+    }
     
     func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
        println("invoke: loginButtonDidLogOut")

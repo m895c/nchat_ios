@@ -22,8 +22,8 @@ class MessagesViewController: JSQMessagesViewController {
     
     var messages = [Message]()
     
-    func receiveMessage(message : String, senderId: String) {
-        let message = Message(text: message, senderId: senderId)
+    func receiveMessage(message : String, senderId: String, senderDisplayName: String) {
+        let message = Message(text: message, senderId: senderId, senderDisplayName: senderDisplayName)
         self.messages.append(message)
         dispatch_async(dispatch_get_main_queue(), { () -> Void in
             self.finishReceivingMessageAnimated(true)
@@ -45,7 +45,7 @@ class MessagesViewController: JSQMessagesViewController {
     
     func sendMessage(text: String!, senderId: String!, senderDisplayName: String!, date: NSDate!) {
         
-        receiveMessage(text, senderId: senderId)
+        receiveMessage(text, senderId: senderId, senderDisplayName: senderDisplayName)
         
         socket?.sendMessage(text, senderId: senderId, senderDisplayName: senderDisplayName, date: date, roomTarget: roomTarget)
     }
@@ -60,7 +60,34 @@ class MessagesViewController: JSQMessagesViewController {
         
         socket?.addChatMessageHandler(self.receiveMessage)
         
+        socket?.addTimeUpHandler() {
+            let alertController = UIAlertController(title: "Time Up", message:
+                "The clock has ran out.", preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default,handler: nil))
+            
+            self.presentViewController(alertController, animated: true, completion: {
+                println("dismiss called")
+            })
+        }
+        
+        // Make avatars dissapear
+        self.collectionView.collectionViewLayout.incomingAvatarViewSize = CGSizeZero
+        self.collectionView.collectionViewLayout.outgoingAvatarViewSize = CGSizeZero
+    
         let automaticallyScrollsToMostRecentMessage = true
+        
+        // hide accessory button
+        self.inputToolbar.contentView.leftBarButtonItem = nil
+        
+        
+        self.title = "Nchat"
+       
+        var revealButton = UIBarButtonItem(title: "Reveal", style: .Plain, target: self, action:"revealButtonPressed")
+        self.navigationItem.rightBarButtonItem = revealButton
+    }
+    
+    func revealButtonPressed() {
+        println("invoke: revealButtonPressed")
     }
 
     override func didReceiveMemoryWarning() {
@@ -129,7 +156,7 @@ class MessagesViewController: JSQMessagesViewController {
         let initials : String? = name.substringToIndex(advance(name.startIndex, min(3, nameLength)))
         let userImage = JSQMessagesAvatarImageFactory.avatarImageWithUserInitials(initials, backgroundColor: color, textColor: UIColor.blackColor(), font: UIFont.systemFontOfSize(CGFloat(13)), diameter: diameter)
         
-        return userImage
+        return nil //userImage
     }
     
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

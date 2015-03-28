@@ -9,8 +9,7 @@
 import Foundation
 
 class Socket {
-    let socketHost  = "localhost:3000"
-    let socket = SocketIOClient(socketURL: "localhost:3000")
+    let socket = SocketIOClient(socketURL: "45.33.12.6")
     
     func sendMessage(text: String!, senderId: String!, senderDisplayName: String!, date: NSDate!, roomTarget: String) {
         let messageDict = ["text": text, "senderId": senderId, "roomtgt": roomTarget ]
@@ -33,12 +32,27 @@ class Socket {
     
     func extractFbInfo(info: NSDictionary) -> Dictionary<String,String> {
         
-        let name = info["name"]! as String
+        var sex = ""
+        var target = ""
         let age = "27"
-        let sex = "1"//info["gender"]! as String
-        let target = "0"//"!\(sex)"
+        
+        let gender = info["gender"]! as String
+        let name = info["name"]! as String
         let token = info["id"]! as String
         
+        
+        switch gender {
+            case "male": sex = "1"
+            case "female": sex = "0"
+            default: sex = "1"
+        }
+        
+        if sex == "1" {
+            target = "0"
+        } else {
+            target = "1"
+        }
+    
         return [
             "name": name,
             "age": age,
@@ -48,17 +62,26 @@ class Socket {
         ]
     }
     
+    
     func sendInfo(info : NSDictionary) -> () {
         socket.emit("info", extractFbInfo(info))
     }
     
-    func addChatMessageHandler(forwardMessage : (String, String) -> () ) {
+    func addTimeUpHandler(callback : () -> ()) ->() {
+        socket.on("timeUp") { [weak self] data, ack in
+            println("timeUp message received")
+            callback()
+        }
+    }
+    
+    func addChatMessageHandler(forwardMessage : (String, String, String) -> () ) {
         println("invoke Socket: addChatMessageHandler")
         socket.on("chat message") {[weak self] data, ack in
             if let dict = data?[0] as? NSDictionary {
+                println("received chat message with: \(dict)")
                 let message = dict["text"] as String
                 let senderId = dict["senderId"] as String
-                forwardMessage(message, senderId)
+                forwardMessage(message, senderId, senderId)
             }
         }
     }
