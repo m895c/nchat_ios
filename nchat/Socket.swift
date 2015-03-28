@@ -25,8 +25,10 @@ class Socket {
     func addMatchHandler(handler: (String) -> ()) {
         socket.on("matched", { [weak self] data, ack in
             let roomTarget = data?[0] as? String
-            println(roomTarget)
             handler(roomTarget!)
+        })
+        socket.on("nomatch", { [weak self] data, ack in
+            println("nomatch received!")
         })
     }
     
@@ -64,7 +66,9 @@ class Socket {
     
     
     func sendInfo(info : NSDictionary) -> () {
-        socket.emit("info", extractFbInfo(info))
+        let fbInfo = extractFbInfo(info)
+        println("invoke: sendInfo with\(fbInfo)")
+        socket.emit("info", fbInfo)
     }
     
     func addTimeUpHandler(callback : () -> ()) ->() {

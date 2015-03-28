@@ -49,15 +49,8 @@ class MessagesViewController: JSQMessagesViewController {
         
         socket?.sendMessage(text, senderId: senderId, senderDisplayName: senderDisplayName, date: date, roomTarget: roomTarget)
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
-        // messageInput.delegate = self
-        
-        //starting messages
-        
+    func setupSocket() {
         socket?.addChatMessageHandler(self.receiveMessage)
         
         socket?.addTimeUpHandler() {
@@ -69,6 +62,22 @@ class MessagesViewController: JSQMessagesViewController {
                 println("dismiss called")
             })
         }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+        
+        // messageInput.delegate = self
+        
+        //starting messages
+        
+        setupSocket()
+        
+        customizeView()
+    }
+    
+    func customizeView() {
         
         // Make avatars dissapear
         self.collectionView.collectionViewLayout.incomingAvatarViewSize = CGSizeZero
@@ -80,10 +89,11 @@ class MessagesViewController: JSQMessagesViewController {
         self.inputToolbar.contentView.leftBarButtonItem = nil
         
         
-        self.title = "Nchat"
+        //self.title = "Nchat"
        
-        var revealButton = UIBarButtonItem(title: "Reveal", style: .Plain, target: self, action:"revealButtonPressed")
+        var revealButton = UIBarButtonItem(title: "Reveal Yourself", style: .Done, target: self, action:"revealButtonPressed")
         self.navigationItem.rightBarButtonItem = revealButton
+        self.navigationItem.backBarButtonItem?.title = "Leave Chat"
     }
     
     func revealButtonPressed() {

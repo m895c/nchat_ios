@@ -13,7 +13,6 @@
 		EC20BF091AC0C26200720CD5 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC20BF081AC0C26200720CD5 /* MessagesViewController.swift */; };
 		EC20BF0C1AC0C26200720CD5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC20BF0A1AC0C26200720CD5 /* Main.storyboard */; };
 		EC20BF0E1AC0C26200720CD5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC20BF0D1AC0C26200720CD5 /* Images.xcassets */; };
-		EC20BF111AC0C26200720CD5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC20BF0F1AC0C26200720CD5 /* LaunchScreen.xib */; };
 		EC20BF1D1AC0C26200720CD5 /* nchatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC20BF1C1AC0C26200720CD5 /* nchatTests.swift */; };
 		EC2869EE1AC358F60017A6EF /* SocketAckHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2869E41AC358F60017A6EF /* SocketAckHandler.swift */; };
 		EC2869EF1AC358F60017A6EF /* SocketEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2869E51AC358F60017A6EF /* SocketEngine.swift */; };
@@ -28,6 +27,7 @@
 		EC2869F91AC363600017A6EF /* FacebookLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2869F81AC363600017A6EF /* FacebookLoginViewController.swift */; };
 		EC4026E01AC5A6E300A7CD71 /* StartChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4026DF1AC5A6E300A7CD71 /* StartChatViewController.swift */; };
 		EC8014B71AC2F40400F4434B /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8014B61AC2F40400F4434B /* Message.swift */; };
+		ECC44BF21AC6FF4000EBD06E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECC44BF11AC6FF4000EBD06E /* LaunchScreen.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +50,6 @@
 		EC20BF081AC0C26200720CD5 /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
 		EC20BF0B1AC0C26200720CD5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EC20BF0D1AC0C26200720CD5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		EC20BF101AC0C26200720CD5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		EC20BF161AC0C26200720CD5 /* nchatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = nchatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC20BF1B1AC0C26200720CD5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC20BF1C1AC0C26200720CD5 /* nchatTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nchatTests.swift; sourceTree = "<group>"; };
@@ -68,6 +67,7 @@
 		EC4026DF1AC5A6E300A7CD71 /* StartChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartChatViewController.swift; sourceTree = "<group>"; };
 		EC8014B61AC2F40400F4434B /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		ECB77A3A1AC0D4A900630478 /* nchat-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "nchat-Bridging-Header.h"; sourceTree = "<group>"; };
+		ECC44BF11AC6FF4000EBD06E /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		F4E072E75824E9C579F4766F /* Pods-nchat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nchat.release.xcconfig"; path = "Pods/Target Support Files/Pods-nchat/Pods-nchat.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -130,7 +130,7 @@
 				EC8014B61AC2F40400F4434B /* Message.swift */,
 				EC20BF0A1AC0C26200720CD5 /* Main.storyboard */,
 				EC20BF0D1AC0C26200720CD5 /* Images.xcassets */,
-				EC20BF0F1AC0C26200720CD5 /* LaunchScreen.xib */,
+				ECC44BF11AC6FF4000EBD06E /* LaunchScreen.xib */,
 				ECB77A3A1AC0D4A900630478 /* nchat-Bridging-Header.h */,
 				EC20BF041AC0C26200720CD5 /* Supporting Files */,
 			);
@@ -271,7 +271,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC20BF0C1AC0C26200720CD5 /* Main.storyboard in Resources */,
-				EC20BF111AC0C26200720CD5 /* LaunchScreen.xib in Resources */,
+				ECC44BF21AC6FF4000EBD06E /* LaunchScreen.xib in Resources */,
 				EC20BF0E1AC0C26200720CD5 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -367,14 +367,6 @@
 				EC20BF0B1AC0C26200720CD5 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		EC20BF0F1AC0C26200720CD5 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				EC20BF101AC0C26200720CD5 /* Base */,
-			);
-			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

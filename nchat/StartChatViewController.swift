@@ -55,6 +55,9 @@ class StartChatViewController: UIViewController {
 
         self.socket = Socket()
         
+        //var revealButton = UIBarButtonItem(title: "< Backer!", style: .Done, target: self, action: { self.navigationItem.popNavigationItemAnimated(true) })
+        //self.navigationItem.leftBarButtonItem = revealButton
+        
         delay(0.5) {
             self.socket?.sendInfo(self.fbProfile!)
             // HACK to return optional nil
