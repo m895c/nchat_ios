@@ -67,10 +67,6 @@ class MessagesViewController: JSQMessagesViewController {
         }
     }
     
-    override func viewWillDisappear(animated: Bool) {
-        var delegate = UIApplication.sharedApplication().delegate as AppDelegate
-        delegate.inChatConversation = false
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

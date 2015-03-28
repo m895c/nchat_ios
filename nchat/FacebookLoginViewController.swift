@@ -38,14 +38,19 @@ class FacebookLoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         
         searchButton.enabled = false
         
+        let delegate = UIApplication.sharedApplication().delegate as AppDelegate
+        delegate.readyToChat = true
+        
         socket?.sendSearch(fbProfile!) { (roomTarget : String) in
             
-            let delegate = UIApplication.sharedApplication().delegate as AppDelegate
+            // Dont know if we need to refetch it here or canuse previous ref
+            //var delegate = UIApplication.sharedApplication().delegate as AppDelegate
+            //delegate.readyToChat = false
             
-            if delegate.inChatConversation == false {
+            if delegate.readyToChat == true {
                 self.roomTarget = roomTarget
+                delegate.readyToChat = false
                 self.performSegueWithIdentifier(self.nextSegue, sender: nil)
-                delegate.inChatConversation = true
             }
             
             // Reset searchButton
