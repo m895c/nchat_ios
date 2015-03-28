@@ -15,6 +15,8 @@ class Message : NSObject, JSQMessageData {
     var date_: NSDate
     var imageUrl_: String?
     
+    var media_ : JSQMessageMediaData?
+    
     convenience init(text: String?, senderId: String, senderDisplayName: String) {
         self.init(text: text, senderId: senderId, senderDisplayName: senderDisplayName, imageUrl: nil)
     }
@@ -47,12 +49,15 @@ class Message : NSObject, JSQMessageData {
         return imageUrl_
     }
     
-    
     func messageHash() -> UInt {
         return UInt (arc4random_uniform(999999999) )
     }
     
+    func media() -> JSQMessageMediaData {
+        return media_!
+    }
+    
     func isMediaMessage() -> Bool {
-        return false
+        return media_ != nil
     }
 }

@@ -23,9 +23,27 @@ class Socket {
         socket.emit("search", extractFbInfo(info))
     }
     
+    func sendReveal(roomTarget: String, info: NSDictionary) {
+        // TODO: only send necessary fields
+        var revealInfo = extractFbInfo(info)
+        revealInfo["roomtgt"] = roomTarget
+        
+        // add roomtgt
+        println("invoke sendReveal with: \(revealInfo)")
+        socket.emit("reveal", revealInfo)
+    }
+    
+    func addRevealHandler(callback : (NSDictionary) -> ()) {
+        socket.on("reveal") {[weak self] data, ack in
+            if let dict = data?[0] as? NSDictionary {
+                println("received reveal message with: \(dict)")
+                callback(dict)
+            }
+        }
+    }
+    
     func sendInfo(info : NSDictionary) -> () {
         let fbInfo = extractFbInfo(info)
-        println("invoke: sendInfo with\(fbInfo)")
         socket.emit("info", fbInfo)
     }
     
@@ -39,6 +57,7 @@ class Socket {
         })
     }
     
+    
     func extractFbInfo(info: NSDictionary) -> Dictionary<String,String> {
         
         var sex = ""
@@ -46,9 +65,10 @@ class Socket {
         let age = "27"
         
         let gender = info["gender"]! as String
-        let name = info["name"]! as String
+        let name = info["first_name"]! as String
         let token = info["id"]! as String
         
+        let picture_url = info["picture"]?["data"]??["url"]?! as String
         
         switch gender {
             case "male": sex = "1"
@@ -67,6 +87,7 @@ class Socket {
             "age": age,
             "sex": sex,
             "target": target,
+            "picture_url": picture_url,
             "token": token
         ]
     }

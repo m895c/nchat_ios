@@ -24,6 +24,10 @@ class MessagesViewController: JSQMessagesViewController {
     
     func receiveMessage(message : String, senderId: String, senderDisplayName: String) {
         let message = Message(text: message, senderId: senderId, senderDisplayName: senderDisplayName)
+        displayNewMessage(message)
+    }
+    
+    func displayNewMessage(message : Message) {
         self.messages.append(message)
         dispatch_async(dispatch_get_main_queue(), { () -> Void in
             self.finishReceivingMessageAnimated(true)
@@ -38,7 +42,7 @@ class MessagesViewController: JSQMessagesViewController {
     }
     
     func senderDisplayName() -> String {
-        let name = fbProfile?["name"]! as NSString
+        let name = fbProfile?["first_name"]! as NSString
         let firstInitial = name.substringWithRange(NSRange(location: 0, length: 1))
         return firstInitial
     }
@@ -53,8 +57,31 @@ class MessagesViewController: JSQMessagesViewController {
     func setupSocket() {
         socket?.addChatMessageHandler(self.receiveMessage)
         
+        socket?.addRevealHandler() { (revealDict : NSDictionary) in
+            let picture_url = revealDict["picture_url"]! as String
+            let name = revealDict["name"]! as String
+            let token = revealDict["token"]! as String
+            
+            let url = NSURL(string: picture_url)
+            let data = NSData(contentsOfURL: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check
+            let image = UIImage(data: data!)
+            
+            
+            let m = Message(text: "reveal", senderId: token, senderDisplayName: token)
+            
+            var photoItem = JSQPhotoMediaItem(image: image)
+            photoItem.appliesMediaViewMaskAsOutgoing = false;
+            
+            m.media_ = photoItem
+            
+            self.displayNewMessage(m)
+        }
+        
+        
         socket?.addTimeUpHandler() {
-            dispatch_after(0, dispatch_get_main_queue(), { () -> Void in
+            
+            let delegate = UIApplication.sharedApplication().delegate as AppDelegate
+            if delegate.inChat == true {
                 let alertController = UIAlertController(title: "Time Up", message:
                     "The clock has ran out.", preferredStyle: .Alert)
                 alertController.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { alert in
@@ -63,7 +90,7 @@ class MessagesViewController: JSQMessagesViewController {
                 }))
                 
                 self.navigationController?.presentViewController(alertController, animated: true, completion: nil)
-            })
+            }
         }
     }
     
@@ -101,7 +128,12 @@ class MessagesViewController: JSQMessagesViewController {
     }
     
     func revealButtonPressed() {
-        println("invoke: revealButtonPressed")
+        socket?.sendReveal(roomTarget, info: fbProfile!)
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        var delegate = UIApplication.sharedApplication().delegate as AppDelegate
+        delegate.inChat = false
     }
 
     override func didReceiveMemoryWarning() {
@@ -115,14 +147,17 @@ class MessagesViewController: JSQMessagesViewController {
         let cell = super.collectionView(collectionView, cellForItemAtIndexPath: indexPath) as JSQMessagesCollectionViewCell
         
         let message = messages[indexPath.item]
-        if message.senderId() == senderId() {
-            cell.textView.textColor = UIColor.blackColor()
-        } else {
-            cell.textView.textColor = UIColor.whiteColor()
+        if !message.isMediaMessage() {
+            if message.senderId() == senderId() {
+                cell.textView.textColor = UIColor.blackColor()
+            } else {
+                cell.textView.textColor = UIColor.whiteColor()
+            }
+            
+            let attributes : [NSObject:AnyObject] = [NSForegroundColorAttributeName:cell.textView.textColor, NSUnderlineStyleAttributeName: 1]
+            cell.textView.linkTextAttributes = attributes
         }
         
-        let attributes : [NSObject:AnyObject] = [NSForegroundColorAttributeName:cell.textView.textColor, NSUnderlineStyleAttributeName: 1]
-        cell.textView.linkTextAttributes = attributes
         
         //        cell.textView.linkTextAttributes = [NSForegroundColorAttributeName: cell.textView.textColor,
         //            NSUnderlineStyleAttributeName: NSUnderlineStyle.StyleSingle]

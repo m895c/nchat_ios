@@ -43,13 +43,10 @@ class FacebookLoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         
         socket?.sendSearch(fbProfile!) { (roomTarget : String) in
             
-            // Dont know if we need to refetch it here or canuse previous ref
-            //var delegate = UIApplication.sharedApplication().delegate as AppDelegate
-            //delegate.readyToChat = false
-            
             if delegate.readyToChat == true {
                 self.roomTarget = roomTarget
                 delegate.readyToChat = false
+                delegate.inChat = true
                 self.performSegueWithIdentifier(self.nextSegue, sender: nil)
             }
             
@@ -85,7 +82,7 @@ class FacebookLoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     func fetchFBProfile() {
         let token = FBSDKAccessToken.currentAccessToken()
         if token != nil {
-            let request = FBSDKGraphRequest(graphPath: "me", parameters: nil).startWithCompletionHandler(
+            let request = FBSDKGraphRequest(graphPath: "me?fields=['gender','first_name','picture','id']", parameters: nil).startWithCompletionHandler(
                 { (connection: FBSDKGraphRequestConnection!, result: AnyObject!, error: NSError!) -> Void in
                     if error == nil {
                         self.fbProfile = result as? NSDictionary
