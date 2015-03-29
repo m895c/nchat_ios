@@ -78,22 +78,21 @@ class MessagesViewController: JSQMessagesViewController {
         }
         
         
-        socket?.addTimeUpHandler() {
-            
-            let delegate = UIApplication.sharedApplication().delegate as AppDelegate
-            if delegate.inChat == true {
-                let alertController = UIAlertController(title: "Time Up", message:
-                    "The clock has ran out.", preferredStyle: .Alert)
-                alertController.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { alert in
-                    self.navigationController?.popViewControllerAnimated(true)
-                    ()
-                }))
-                
-                self.navigationController?.presentViewController(alertController, animated: true, completion: nil)
-            }
-        }
     }
     
+    func timeUp() {
+        let delegate = UIApplication.sharedApplication().delegate as AppDelegate
+        if delegate.inChat == true {
+            let alertController = UIAlertController(title: "Time Up", message:
+                "The clock has ran out.", preferredStyle: .Alert)
+            alertController.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { alert in
+                self.navigationController?.popViewControllerAnimated(true)
+                ()
+            }))
+            
+            self.navigationController?.presentViewController(alertController, animated: true, completion: nil)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -120,12 +119,30 @@ class MessagesViewController: JSQMessagesViewController {
         self.inputToolbar.contentView.leftBarButtonItem = nil
         
         
-        //self.title = "Nchat"
-       
+        self.navigationItem.titleView = createCountDownLabel()
+        
         var revealButton = UIBarButtonItem(title: "Reveal Yourself", style: .Done, target: self, action:"revealButtonPressed")
         self.navigationItem.rightBarButtonItem = revealButton
+        
         self.navigationItem.backBarButtonItem?.title = "Leave Chat"
     }
+    
+    func createCountDownLabel() -> UILabel {
+        // Add countdown timer
+        var label = UILabel(frame: CGRectMake(0, 0, 50, 50))
+        
+        let timer = MZTimerLabel(label: label, andTimerType:MZTimerLabelTypeTimer)
+        timer.timeFormat = "m:ss"
+        timer.setCountDownTime(20)
+        
+        timer.startWithEndingBlock { (time: NSTimeInterval) -> Void in
+            self.timeUp()
+        }
+        timer.start()
+        
+        return label
+    }
+    
     
     func revealButtonPressed() {
         socket?.sendReveal(roomTarget, info: fbProfile!)

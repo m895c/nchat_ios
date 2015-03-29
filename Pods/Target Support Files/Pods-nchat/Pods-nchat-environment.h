@@ -54,3 +54,9 @@
 #define COCOAPODS_VERSION_MINOR_JSQSystemSoundPlayer 0
 #define COCOAPODS_VERSION_PATCH_JSQSystemSoundPlayer 1
 
+// MZTimerLabel
+#define COCOAPODS_POD_AVAILABLE_MZTimerLabel
+#define COCOAPODS_VERSION_MAJOR_MZTimerLabel 0
+#define COCOAPODS_VERSION_MINOR_MZTimerLabel 5
+#define COCOAPODS_VERSION_PATCH_MZTimerLabel 1
+

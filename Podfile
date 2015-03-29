@@ -6,6 +6,7 @@ platform :ios, '8.0'
 target 'nchat' do
   pod 'JSQMessagesViewController'
   pod 'Facebook-iOS-SDK'
+  pod 'MZTimerLabel'
 end
 
 target 'nchatTests' do

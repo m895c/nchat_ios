@@ -87,10 +87,13 @@ class FacebookLoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                     if error == nil {
                         self.fbProfile = result as? NSDictionary
                         println("invoke: fbGetProfile with data: \(self.fbProfile)")
+                        self.socket?.sendInfo(self.fbProfile!)
                     } else {
-                        println("Error occured fetching data")
+                        var alert = UIAlertController(title: "Error", message: "Failed to connect to the internet. Please close the app and try again", preferredStyle: UIAlertControllerStyle.Alert)
+                        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+                        self.presentViewController(alert, animated: true, completion: nil)
+                        println("Error occured fetching data\n error: \(error)")
                     }
-                self.socket?.sendInfo(self.fbProfile!)
             })
         }
     }

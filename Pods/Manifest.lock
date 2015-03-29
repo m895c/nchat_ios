@@ -19,15 +19,18 @@ PODS:
   - JSQMessagesViewController (7.0.0):
     - JSQSystemSoundPlayer (~> 2.0.1)
   - JSQSystemSoundPlayer (2.0.1)
+  - MZTimerLabel (0.5.1)
 
 DEPENDENCIES:
   - Facebook-iOS-SDK
   - JSQMessagesViewController
+  - MZTimerLabel
 
 SPEC CHECKSUMS:
   Bolts: dd9fb8433d67f5acc3b6b4d1379bbc5513d716c1
   Facebook-iOS-SDK: 523ee69fdd3c37cdca6578c79912f47943035806
   JSQMessagesViewController: 9fd7e9ac96e9fc91f2deca86928e2cc916aeebaa
   JSQSystemSoundPlayer: 55528c699a283aae2220d3ae7b8b527d2ecef4b4
+  MZTimerLabel: 599c3e89ae7fccc7bd6fc3b30fc737cf742345a9
 
 COCOAPODS: 0.36.0

@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9A743C8EA388AA193C948E56"
+               BlueprintIdentifier = "EC554D8C66F2CEB1829E87E5"
                BuildableName = "libPods-nchat.a"
                BlueprintName = "Pods-nchat"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -42,7 +42,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9A743C8EA388AA193C948E56"
+            BlueprintIdentifier = "EC554D8C66F2CEB1829E87E5"
             BuildableName = "libPods-nchat.a"
             BlueprintName = "Pods-nchat"
             ReferencedContainer = "container:Pods.xcodeproj">

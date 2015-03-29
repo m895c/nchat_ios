@@ -24,6 +24,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-nchat-MZTimerLabel.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-nchat.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,27 +37,32 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>9A743C8EA388AA193C948E56</key>
+		<key>0D34C28827A0CAC3BFE06999</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C5A79B40C79A1608FA6E0B0D</key>
+		<key>757302B477885FE94EE0DADD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D4FC3F4939A31DCC7279463F</key>
+		<key>A825A4FFC1BD01EF3D8CA441</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E611E1DFC8492B70B375A898</key>
+		<key>BCF23FC19B42598F0068A726</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FE5755A7544C5BD439621C58</key>
+		<key>EC554D8C66F2CEB1829E87E5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F839F542D18C6D67EABCD2C4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
