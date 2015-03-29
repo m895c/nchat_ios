@@ -14,8 +14,6 @@ class FacebookLoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     
     @IBOutlet weak var fbLoginButton: FBSDKLoginButton!
     
-    var fbProfile : NSDictionary?
-    
     let nextSegue = "ToMessagesSegue"
     
     var roomTarget : String = ""
@@ -41,7 +39,8 @@ class FacebookLoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         let delegate = UIApplication.sharedApplication().delegate as AppDelegate
         delegate.readyToChat = true
         
-        socket?.sendSearch(fbProfile!) { (roomTarget : String) in
+        socket?.sendInfo(delegate.fbProfile!)
+        socket?.sendSearch(delegate.fbProfile!) { (roomTarget : String) in
             
             if delegate.readyToChat == true {
                 self.roomTarget = roomTarget
@@ -59,8 +58,11 @@ class FacebookLoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.searchButton.enabled = false
+        
         self.socket = Socket()
         
         self.fbLoginButton.readPermissions = ["public_profile", "email", "user_friends"]
@@ -74,30 +76,57 @@ class FacebookLoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         }
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
     func segueToMessagesView() {
         println("invoke: segueToMessagesView")
         self.performSegueWithIdentifier(nextSegue, sender: nil)
     }
     
     func fetchFBProfile() {
+        println("invoke: fetchFBProfile")
         let token = FBSDKAccessToken.currentAccessToken()
         if token != nil {
-            let request = FBSDKGraphRequest(graphPath: "me?fields=['gender','first_name','picture','id']", parameters: nil).startWithCompletionHandler(
-                { (connection: FBSDKGraphRequestConnection!, result: AnyObject!, error: NSError!) -> Void in
-                    if error == nil {
-                        self.fbProfile = result as? NSDictionary
-                        println("invoke: fbGetProfile with data: \(self.fbProfile)")
-                        self.socket?.sendInfo(self.fbProfile!)
-                    } else {
-                        var alert = UIAlertController(title: "Error", message: "Failed to connect to the internet. Please close the app and try again", preferredStyle: UIAlertControllerStyle.Alert)
-                        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
-                        self.presentViewController(alert, animated: true, completion: nil)
-                        println("Error occured fetching data\n error: \(error)")
-                    }
+            let meRequest = FBSDKGraphRequest(graphPath: "me?fields=['gender','first_name','id','link']", parameters: nil)
+            let pictureRequest = FBSDKGraphRequest(graphPath: "me/picture?redirect=false&width=400", parameters: nil)
+                
+            let conn = FBSDKGraphRequestConnection()
+            
+            conn.addRequest(meRequest, completionHandler: { (connection: FBSDKGraphRequestConnection!, result: AnyObject!, error: NSError!) -> Void in
+                if error == nil {
+                    let infoDict = result as? NSDictionary
+                    
+                    let delegate = UIApplication.sharedApplication().delegate as AppDelegate
+                    delegate.fbProfile = infoDict
+                    
+                    self.socket?.sendInfo(delegate.fbProfile!)
+                    self.searchButton.enabled = true
+                } else {
+                    self.failedToConnectPopUp(error)
+                }
             })
+            
+            conn.addRequest(pictureRequest, completionHandler: { (connection: FBSDKGraphRequestConnection!, result: AnyObject!, error: NSError!) -> Void in
+                if error == nil {
+                    let photoDict = result as? NSDictionary
+                    
+                    let delegate = UIApplication.sharedApplication().delegate as AppDelegate
+                    delegate.fbPicture = photoDict
+                }
+            })
+            
+            conn.start()
         }
     }
     
+    func failedToConnectPopUp(error : NSError!) {
+        println("Error occured fetching data\n error: \(error)")
+        var alert = UIAlertController(title: "Error", message: "Failed to connect to the internet. Please close the app and try again", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
     
     func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
         println("invoke: loginButton\n result: \(result)")
@@ -108,29 +137,6 @@ class FacebookLoginViewController: UIViewController, FBSDKLoginButtonDelegate {
        println("invoke: loginButtonDidLogOut")
     }
     
-    //func loginViewShowingLoggedInUser(loginView : FBLoginView!) {
-    //    // THIS IS CALLED soemtimes before loginViewFetchedUserInfo
-    //    println("invoke: loginViewShowingLoggedInUser - performing segue")
-    //    if (fbProfile != nil) {
-    //    self.performSegueWithIdentifier(nextSegue, sender: nil)
-    //    } else {
-    //        println("No FB User definied")
-    //    }
-    //}
-    //
-    //func loginViewFetchedUserInfo(loginView : FBLoginView!, user: FBGraphUser){
-    //    println("invoke: loginViewFetchedUserInfo - setting FBUser")
-    //    self.fbProfile = user
-    //}
-    //
-    //func loginViewShowingLoggedOutUser(loginView : FBLoginView!) {
-    //    println("User Logged Out")
-    //}
-    //
-    //func loginView(loginView : FBLoginView!, handleError:NSError) {
-    //    println("Error: \(handleError.localizedDescription)")
-    //}
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -141,7 +147,6 @@ class FacebookLoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == nextSegue {
             let MessagesVC = segue.destinationViewController as MessagesViewController
-            MessagesVC.fbProfile = self.fbProfile
             MessagesVC.socket = self.socket
             MessagesVC.roomTarget = self.roomTarget
         }

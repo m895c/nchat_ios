@@ -10,6 +10,8 @@ import UIKit
 import Foundation
 
 class MessagesViewController: JSQMessagesViewController {
+    
+    let countDownTime : NSTimeInterval = 120
 
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -17,7 +19,6 @@ class MessagesViewController: JSQMessagesViewController {
     
     var socket : Socket?
     
-    var fbProfile : NSDictionary?
     var roomTarget : String = ""
     
     var messages = [Message]()
@@ -35,14 +36,19 @@ class MessagesViewController: JSQMessagesViewController {
     }
     
     func senderId() -> String {
-        let fbID = fbProfile?["id"]! as NSString
+        
+        let delegate = UIApplication.sharedApplication().delegate as AppDelegate
+        
+        let fbID = delegate.fbProfile?["id"]! as NSString
         
         // THIS IS BAD: We don't want other clients to actually see this info
         return fbID.substringWithRange(NSRange(location: 0, length: 10))
     }
     
     func senderDisplayName() -> String {
-        let name = fbProfile?["first_name"]! as NSString
+        let delegate = UIApplication.sharedApplication().delegate as AppDelegate
+        
+        let name = delegate.fbProfile?["first_name"]! as NSString
         let firstInitial = name.substringWithRange(NSRange(location: 0, length: 1))
         return firstInitial
     }
@@ -61,20 +67,25 @@ class MessagesViewController: JSQMessagesViewController {
             let picture_url = revealDict["picture_url"]! as String
             let name = revealDict["name"]! as String
             let token = revealDict["token"]! as String
+            let link = revealDict["link"]! as String
             
             let url = NSURL(string: picture_url)
+            
             let data = NSData(contentsOfURL: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check
             let image = UIImage(data: data!)
             
-            
-            let m = Message(text: "reveal", senderId: token, senderDisplayName: token)
+            let m1 = Message(text: "\(name) revealed themselves", senderId: token, senderDisplayName: token)
+            let m2 = Message(text: "", senderId: token, senderDisplayName: token)
+            let m3 = Message(text: "Click here to visit their Facebook: \(link)", senderId: token, senderDisplayName: token)
             
             var photoItem = JSQPhotoMediaItem(image: image)
-            photoItem.appliesMediaViewMaskAsOutgoing = false;
+            photoItem.appliesMediaViewMaskAsOutgoing = false
             
-            m.media_ = photoItem
+            m2.media_ = photoItem
             
-            self.displayNewMessage(m)
+            self.displayNewMessage(m1)
+            self.displayNewMessage(m2)
+            self.displayNewMessage(m3)
         }
         
         
@@ -133,7 +144,7 @@ class MessagesViewController: JSQMessagesViewController {
         
         let timer = MZTimerLabel(label: label, andTimerType:MZTimerLabelTypeTimer)
         timer.timeFormat = "m:ss"
-        timer.setCountDownTime(20)
+        timer.setCountDownTime(countDownTime)
         
         timer.startWithEndingBlock { (time: NSTimeInterval) -> Void in
             self.timeUp()
@@ -145,7 +156,9 @@ class MessagesViewController: JSQMessagesViewController {
     
     
     func revealButtonPressed() {
-        socket?.sendReveal(roomTarget, info: fbProfile!)
+        let delegate = UIApplication.sharedApplication().delegate as AppDelegate
+        socket?.sendReveal(roomTarget, info: delegate.fbProfile!)
+        self.navigationItem.rightBarButtonItem?.enabled = false
     }
     
     override func viewWillDisappear(animated: Bool) {

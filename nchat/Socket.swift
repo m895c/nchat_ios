@@ -65,10 +65,18 @@ class Socket {
         let age = "27"
         
         let gender = info["gender"]! as String
+        let link = info["link"]! as String
         let name = info["first_name"]! as String
         let token = info["id"]! as String
         
-        let picture_url = info["picture"]?["data"]??["url"]?! as String
+        
+        let delegate = UIApplication.sharedApplication().delegate as AppDelegate
+        var picture_url = ""
+        if let pic_data: AnyObject = delegate.fbPicture?["data"] {
+            picture_url = pic_data["url"]?! as String
+        }
+        println(delegate.fbPicture?["data"])
+        println("picture_url: \(picture_url)")
         
         switch gender {
             case "male": sex = "1"
@@ -86,6 +94,7 @@ class Socket {
             "name": name,
             "age": age,
             "sex": sex,
+            "link": link,
             "target": target,
             "picture_url": picture_url,
             "token": token
