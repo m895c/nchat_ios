@@ -19,7 +19,6 @@ class Socket {
 
     func sendSearch(info : NSDictionary, onMatchHandler: (String) -> ()) -> () {
         addMatchHandler(onMatchHandler)
-        println("invoke: sendSearch")
         socket.emit("search", extractFbInfo(info))
     }
     
@@ -29,14 +28,12 @@ class Socket {
         revealInfo["roomtgt"] = roomTarget
         
         // add roomtgt
-        println("invoke sendReveal with: \(revealInfo)")
         socket.emit("reveal", revealInfo)
     }
     
     func addRevealHandler(callback : (NSDictionary) -> ()) {
         socket.on("reveal") {[weak self] data, ack in
             if let dict = data?[0] as? NSDictionary {
-                println("received reveal message with: \(dict)")
                 callback(dict)
             }
         }
@@ -75,8 +72,6 @@ class Socket {
         if let pic_data: AnyObject = delegate.fbPicture?["data"] {
             picture_url = pic_data["url"]?! as String
         }
-        println(delegate.fbPicture?["data"])
-        println("picture_url: \(picture_url)")
         
         switch gender {
             case "male": sex = "1"
@@ -104,16 +99,13 @@ class Socket {
     
     func addTimeUpHandler(callback : () -> ()) ->() {
         socket.on("timeUp") { [weak self] data, ack in
-            println("timeUp message received")
             callback()
         }
     }
     
     func addChatMessageHandler(forwardMessage : (String, String, String) -> () ) {
-        println("invoke Socket: addChatMessageHandler")
         socket.on("chat message") {[weak self] data, ack in
             if let dict = data?[0] as? NSDictionary {
-                println("received chat message with: \(dict)")
                 let message = dict["text"] as String
                 let senderId = dict["senderId"] as String
                 forwardMessage(message, senderId, senderId)
@@ -121,8 +113,11 @@ class Socket {
         }
     }
     
+    func disconnect() {
+        socket.close(fast: false)
+    }
+    
     init() {
-        println("invoke Socket: init()")
         socket.connect()
     }
 }

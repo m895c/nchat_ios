@@ -17,8 +17,6 @@ class MessagesViewController: JSQMessagesViewController {
         super.init(coder: aDecoder)
     }
     
-    var socket : Socket?
-    
     var roomTarget : String = ""
     
     var messages = [Message]()
@@ -57,13 +55,15 @@ class MessagesViewController: JSQMessagesViewController {
         
         receiveMessage(text, senderId: senderId, senderDisplayName: senderDisplayName)
         
-        socket?.sendMessage(text, senderId: senderId, senderDisplayName: senderDisplayName, date: date, roomTarget: roomTarget)
+        let delegate = UIApplication.sharedApplication().delegate as AppDelegate
+        delegate.socket?.sendMessage(text, senderId: senderId, senderDisplayName: senderDisplayName, date: date, roomTarget: roomTarget)
     }
         
     func setupSocket() {
-        socket?.addChatMessageHandler(self.receiveMessage)
+        let delegate = UIApplication.sharedApplication().delegate as AppDelegate
+        delegate.socket?.addChatMessageHandler(self.receiveMessage)
         
-        socket?.addRevealHandler() { (revealDict : NSDictionary) in
+        delegate.socket?.addRevealHandler() { (revealDict : NSDictionary) in
             let picture_url = revealDict["picture_url"]! as String
             let name = revealDict["name"]! as String
             let token = revealDict["token"]! as String
@@ -157,7 +157,7 @@ class MessagesViewController: JSQMessagesViewController {
     
     func revealButtonPressed() {
         let delegate = UIApplication.sharedApplication().delegate as AppDelegate
-        socket?.sendReveal(roomTarget, info: delegate.fbProfile!)
+        delegate.socket?.sendReveal(roomTarget, info: delegate.fbProfile!)
         self.navigationItem.rightBarButtonItem?.enabled = false
     }
     

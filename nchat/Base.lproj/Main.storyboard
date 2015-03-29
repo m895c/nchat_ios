@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="dVy-m0-fy0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="MaA-eI-VXQ">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Messages View Controller-->
@@ -22,12 +23,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wWF-kz-yEO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="988" y="1021"/>
+            <point key="canvasLocation" x="988" y="1020.9999999999999"/>
         </scene>
         <!--Home-->
         <scene sceneID="ENY-W8-2aK">
             <objects>
-                <viewController id="Ado-1m-APT" customClass="FacebookLoginViewController" customModule="nchat" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Ado-1m-APT" customClass="HomeViewController" customModule="nchat" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="E6m-c0-Uxd"/>
                         <viewControllerLayoutGuide type="bottom" id="ejj-dJ-Tnn"/>
@@ -36,8 +37,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="redraw" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gG0-ym-HAN" customClass="FBSDKLoginButton">
+                                <rect key="frame" x="60" y="498" width="200" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ajv-FP-13i">
-                                <rect key="frame" x="136" y="226" width="48" height="30"/>
+                                <rect key="frame" x="136" y="187" width="48" height="30"/>
                                 <state key="normal" title="Search">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -45,15 +50,12 @@
                                     <action selector="searchButtonClicked" destination="Ado-1m-APT" eventType="touchUpInside" id="Kr5-8K-yRp"/>
                                 </connections>
                             </button>
-                            <view contentMode="redraw" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gG0-ym-HAN" customClass="FBSDKLoginButton">
-                                <rect key="frame" x="60" y="346" width="200" height="50"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="ajv-FP-13i" secondAttribute="centerX" id="exO-BS-LLI"/>
-                            <constraint firstAttribute="centerX" secondItem="gG0-ym-HAN" secondAttribute="centerX" id="yJQ-uU-mNc"/>
+                            <constraint firstAttribute="centerX" secondItem="ajv-FP-13i" secondAttribute="centerX" id="WCd-mc-2hM"/>
+                            <constraint firstAttribute="centerX" secondItem="gG0-ym-HAN" secondAttribute="centerX" id="fgn-CP-nZe"/>
+                            <constraint firstItem="ejj-dJ-Tnn" firstAttribute="top" secondItem="gG0-ym-HAN" secondAttribute="bottom" constant="20" id="nA5-bP-6a6"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="OnY-yW-tlO">
@@ -67,7 +69,59 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RJA-UP-58q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="544" y="1021"/>
+            <point key="canvasLocation" x="544" y="1020.9999999999999"/>
+        </scene>
+        <!--Login View Controller-->
+        <scene sceneID="btV-Zn-F4i">
+            <objects>
+                <viewController id="MaA-eI-VXQ" customClass="LoginViewController" customModule="nchat" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ss4-gg-3Ra"/>
+                        <viewControllerLayoutGuide type="bottom" id="4Wv-1k-gH8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jPY-59-dAY">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" alpha="0.10000000000000001" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ManHat" translatesAutoresizingMaskIntoConstraints="NO" id="baK-da-wod">
+                                <rect key="frame" x="0.0" y="0.0" width="4869" height="3456"/>
+                            </imageView>
+                            <view clearsContextBeforeDrawing="NO" contentMode="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="hWQ-jx-tZL" customClass="FBSDKLoginButton">
+                                <rect key="frame" x="60" y="436" width="200" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="55h-7g-Wah"/>
+                                    <constraint firstAttribute="height" constant="50" id="fuq-65-NNJ"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome to nchat" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v57-zP-x0a">
+                                <rect key="frame" x="66" y="58" width="189" height="30"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="23"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="baK-da-wod" secondAttribute="centerY" id="9Pe-Jf-jyc"/>
+                            <constraint firstItem="baK-da-wod" firstAttribute="top" secondItem="jPY-59-dAY" secondAttribute="topMargin" id="Cu3-wo-doU"/>
+                            <constraint firstItem="baK-da-wod" firstAttribute="leading" secondItem="jPY-59-dAY" secondAttribute="leadingMargin" constant="-16" id="ErM-ad-r3h"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="baK-da-wod" secondAttribute="trailing" constant="-4565" id="FlV-Lb-kZr"/>
+                            <constraint firstItem="4Wv-1k-gH8" firstAttribute="top" secondItem="hWQ-jx-tZL" secondAttribute="bottom" constant="82" id="Itq-p3-bli"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="baK-da-wod" secondAttribute="bottom" constant="-2888" id="Ud6-Jf-U5l"/>
+                            <constraint firstAttribute="centerX" secondItem="hWQ-jx-tZL" secondAttribute="centerX" id="a7D-cU-5sW"/>
+                            <constraint firstAttribute="centerX" secondItem="baK-da-wod" secondAttribute="centerX" id="hOy-Au-J7z"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="XEp-dG-6bJ"/>
+                    <connections>
+                        <outlet property="fbLoginButton" destination="hWQ-jx-tZL" id="nZj-aT-SI6"/>
+                        <segue destination="dVy-m0-fy0" kind="modal" identifier="loginToHome" id="jfL-ex-pvQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hPz-9D-Tqp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="500" y="252"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="l50-ws-NGL">
@@ -81,13 +135,19 @@
                     <nil name="viewControllers"/>
                     <connections>
                         <segue destination="Ado-1m-APT" kind="relationship" relationship="rootViewController" id="6Ge-21-57D"/>
+                        <segue destination="MaA-eI-VXQ" kind="popover" identifier="homeToLogin" id="2Pu-r7-FB2">
+                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                        </segue>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ybu-Ig-Tp6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="80" y="1021"/>
+            <point key="canvasLocation" x="80" y="1020.9999999999999"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ManHat" width="587" height="736"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
