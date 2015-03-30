@@ -42,10 +42,19 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ajv-FP-13i">
-                                <rect key="frame" x="136" y="187" width="48" height="30"/>
+                                <rect key="frame" x="60" y="176" width="200" height="50"/>
+                                <color key="backgroundColor" red="0.8399013702" green="0.88009032710000001" blue="0.89486663509999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="24"/>
                                 <state key="normal" title="Search">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="searchButtonClicked" destination="Ado-1m-APT" eventType="touchUpInside" id="Kr5-8K-yRp"/>
                                 </connections>
@@ -53,6 +62,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="centerX" secondItem="ajv-FP-13i" secondAttribute="centerX" id="VAn-TR-gmG"/>
                             <constraint firstAttribute="centerX" secondItem="ajv-FP-13i" secondAttribute="centerX" id="WCd-mc-2hM"/>
                             <constraint firstAttribute="centerX" secondItem="gG0-ym-HAN" secondAttribute="centerX" id="fgn-CP-nZe"/>
                             <constraint firstItem="ejj-dJ-Tnn" firstAttribute="top" secondItem="gG0-ym-HAN" secondAttribute="bottom" constant="20" id="nA5-bP-6a6"/>
@@ -65,11 +75,12 @@
                         <outlet property="fbLoginButton" destination="gG0-ym-HAN" id="BLj-9h-ayx"/>
                         <outlet property="searchButton" destination="ajv-FP-13i" id="pdw-Wb-Opz"/>
                         <segue destination="dMk-uW-YMb" kind="push" identifier="ToMessagesSegue" id="Dpa-gj-sJD"/>
+                        <segue destination="MaA-eI-VXQ" kind="modal" identifier="homeToLogin" modalTransitionStyle="crossDissolve" id="TGU-Nt-SNy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RJA-UP-58q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="544" y="1020.9999999999999"/>
+            <point key="canvasLocation" x="544" y="1020"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="btV-Zn-F4i">
@@ -94,7 +105,7 @@
                                     <constraint firstAttribute="height" constant="50" id="fuq-65-NNJ"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome to nchat" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v57-zP-x0a">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Welcome to nchat" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v57-zP-x0a">
                                 <rect key="frame" x="66" y="58" width="189" height="30"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="23"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -111,12 +122,13 @@
                             <constraint firstAttribute="bottomMargin" secondItem="baK-da-wod" secondAttribute="bottom" constant="-2888" id="Ud6-Jf-U5l"/>
                             <constraint firstAttribute="centerX" secondItem="hWQ-jx-tZL" secondAttribute="centerX" id="a7D-cU-5sW"/>
                             <constraint firstAttribute="centerX" secondItem="baK-da-wod" secondAttribute="centerX" id="hOy-Au-J7z"/>
+                            <constraint firstAttribute="centerX" secondItem="v57-zP-x0a" secondAttribute="centerX" id="q02-7I-Jht"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="XEp-dG-6bJ"/>
                     <connections>
                         <outlet property="fbLoginButton" destination="hWQ-jx-tZL" id="nZj-aT-SI6"/>
-                        <segue destination="dVy-m0-fy0" kind="modal" identifier="loginToHome" id="jfL-ex-pvQ"/>
+                        <segue destination="dVy-m0-fy0" kind="modal" identifier="loginToHome" modalTransitionStyle="crossDissolve" id="jfL-ex-pvQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hPz-9D-Tqp" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -135,9 +147,7 @@
                     <nil name="viewControllers"/>
                     <connections>
                         <segue destination="Ado-1m-APT" kind="relationship" relationship="rootViewController" id="6Ge-21-57D"/>
-                        <segue destination="MaA-eI-VXQ" kind="popover" identifier="homeToLogin" id="2Pu-r7-FB2">
-                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                        </segue>
+                        <segue destination="MaA-eI-VXQ" kind="modal" identifier="homeToLogin" modalTransitionStyle="coverVertical" id="2Pu-r7-FB2"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ybu-Ig-Tp6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -153,4 +163,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="TGU-Nt-SNy"/>
+    </inferredMetricsTieBreakers>
 </document>
