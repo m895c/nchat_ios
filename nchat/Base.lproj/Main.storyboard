@@ -59,13 +59,39 @@
                                     <action selector="searchButtonClicked" destination="Ado-1m-APT" eventType="touchUpInside" id="Kr5-8K-yRp"/>
                                 </connections>
                             </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LDi-uu-BWt">
+                                <rect key="frame" x="136" y="348" width="51" height="31"/>
+                                <color key="onTintColor" red="0.60000002384185791" green="0.60000002384185791" blue="0.60000002384185791" alpha="1" colorSpace="calibratedRGB"/>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Women" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bDq-Cz-HsD">
+                                <rect key="frame" x="60" y="353" width="51" height="18"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="I want to chat with:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bgH-sD-ZiD">
+                                <rect key="frame" x="99" y="308" width="123" height="18"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Men" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9tN-4h-p7x">
+                                <rect key="frame" x="231" y="353" width="29" height="18"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="ajv-FP-13i" secondAttribute="centerX" id="VAn-TR-gmG"/>
+                            <constraint firstItem="9tN-4h-p7x" firstAttribute="leading" secondItem="LDi-uu-BWt" secondAttribute="trailing" constant="46" id="3PI-4W-GTG"/>
+                            <constraint firstItem="LDi-uu-BWt" firstAttribute="leading" secondItem="bDq-Cz-HsD" secondAttribute="trailing" constant="25" id="9l1-FB-frk"/>
+                            <constraint firstAttribute="centerX" secondItem="LDi-uu-BWt" secondAttribute="centerX" id="RGE-pg-3V5"/>
                             <constraint firstAttribute="centerX" secondItem="ajv-FP-13i" secondAttribute="centerX" id="WCd-mc-2hM"/>
                             <constraint firstAttribute="centerX" secondItem="gG0-ym-HAN" secondAttribute="centerX" id="fgn-CP-nZe"/>
+                            <constraint firstAttribute="centerX" secondItem="LDi-uu-BWt" secondAttribute="centerX" id="lnq-4f-rDv"/>
                             <constraint firstItem="ejj-dJ-Tnn" firstAttribute="top" secondItem="gG0-ym-HAN" secondAttribute="bottom" constant="20" id="nA5-bP-6a6"/>
+                            <constraint firstAttribute="centerX" secondItem="bgH-sD-ZiD" secondAttribute="centerX" id="qri-uQ-uPo"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="OnY-yW-tlO">
@@ -73,6 +99,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="fbLoginButton" destination="gG0-ym-HAN" id="BLj-9h-ayx"/>
+                        <outlet property="genderPrefSwitch" destination="LDi-uu-BWt" id="PPW-qz-LRt"/>
                         <outlet property="searchButton" destination="ajv-FP-13i" id="pdw-Wb-Opz"/>
                         <segue destination="dMk-uW-YMb" kind="push" identifier="ToMessagesSegue" id="Dpa-gj-sJD"/>
                         <segue destination="MaA-eI-VXQ" kind="modal" identifier="homeToLogin" modalTransitionStyle="crossDissolve" id="TGU-Nt-SNy"/>
@@ -108,7 +135,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Welcome to nchat" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v57-zP-x0a">
                                 <rect key="frame" x="66" y="58" width="189" height="30"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="23"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -133,7 +160,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hPz-9D-Tqp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="500" y="252"/>
+            <point key="canvasLocation" x="496" y="254"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="l50-ws-NGL">

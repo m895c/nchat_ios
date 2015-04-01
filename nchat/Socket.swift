@@ -17,9 +17,11 @@ class Socket {
     }
     
 
-    func sendSearch(info : NSDictionary, onMatchHandler: (String) -> ()) -> () {
+    func sendSearch(info : NSDictionary, targetGender: Bool, onMatchHandler: (String) -> ()) -> () {
         addMatchHandler(onMatchHandler)
-        socket.emit("search", extractFbInfo(info))
+        let info2 = extractFbInfo(info, targetGender: targetGender)
+        println("info sendSearch is: \(info2)")
+        socket.emit("search", info2)
     }
     
     func sendReveal(roomTarget: String, info: NSDictionary) {
@@ -55,7 +57,7 @@ class Socket {
     }
     
     
-    func extractFbInfo(info: NSDictionary) -> Dictionary<String,String> {
+    func extractFbInfo(info: NSDictionary, targetGender : Bool = true) -> Dictionary<String,String> {
         
         var sex = ""
         var target = ""
@@ -79,10 +81,10 @@ class Socket {
             default: sex = "1"
         }
         
-        if sex == "1" {
-            target = "0"
-        } else {
+        if targetGender == true {
             target = "1"
+        } else {
+            target = "0"
         }
     
         return [

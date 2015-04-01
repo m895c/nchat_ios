@@ -18,6 +18,16 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        self.fbLoginButton.readPermissions = ["public_profile", "email", "user_friends"]
+        self.fbLoginButton.delegate = self
+        
+        let token = FBSDKAccessToken.currentAccessToken()
+        if token != nil {
+            // FBLoggedIn, segue to chat
+            fetchFBProfile()
+        }
+        
         //UIGraphicsBeginImageContext(self.view.frame.size)
         //UIImage(named: "ManHat")?.drawInRect(self.view.bounds)
         //
@@ -34,19 +44,6 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    override func viewWillAppear(animated: Bool) {
-        
-        self.fbLoginButton.readPermissions = ["public_profile", "email", "user_friends"]
-        self.fbLoginButton.delegate = self
-        
-        let token = FBSDKAccessToken.currentAccessToken()
-        if token != nil {
-            // FBLoggedIn, segue to chat
-            fetchFBProfile()
-        }
-        // show we're loading your data
-    }
-    
     func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
         println("invoke: loginButton\n result: \(result)")
         fetchFBProfile()
@@ -57,6 +54,10 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     }
     
     func fetchFBProfile() {
+        fbLoginButton.enabled = false
+        fbLoginButton.setTitle("Loading your data...", forState: .Normal)
+        
+        
         let token = FBSDKAccessToken.currentAccessToken()
         if token != nil {
             let meRequest = FBSDKGraphRequest(graphPath: "me?fields=['gender','first_name','id','link']", parameters: nil)

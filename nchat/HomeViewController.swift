@@ -8,16 +8,16 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, FBSDKLoginButtonDelegate  {
 
-    //@IBOutlet var fbLoginView : FBLoginView!
-    
     @IBOutlet weak var fbLoginButton: FBSDKLoginButton!
     
     let nextSegue = "ToMessagesSegue"
     let backSegue = "homeToLogin"
     
     var roomTarget : String = ""
+    
+    @IBOutlet weak var genderPrefSwitch: UISwitch!
     
     @IBOutlet weak var searchButton: UIButton!
     
@@ -34,12 +34,13 @@ class HomeViewController: UIViewController {
         spinner.startAnimating()
         
         searchButton.enabled = false
+        genderPrefSwitch.enabled = false
         
         let delegate = UIApplication.sharedApplication().delegate as AppDelegate
         delegate.readyToChat = true
         
-        delegate.socket?.sendInfo(delegate.fbProfile!)
-        delegate.socket?.sendSearch(delegate.fbProfile!) { (roomTarget : String) in
+        delegate.socket!.sendInfo(delegate.fbProfile!)
+        delegate.socket!.sendSearch(delegate.fbProfile!, targetGender: genderPrefSwitch.on) { (roomTarget : String) in
             
             if delegate.readyToChat == true {
                 self.roomTarget = roomTarget
@@ -50,6 +51,7 @@ class HomeViewController: UIViewController {
             
             // Reset searchButton
             self.searchButton.enabled = true
+            self.genderPrefSwitch.enabled = true
             spinner.stopAnimating()
             self.searchButton.setTitle("Search again", forState: .Normal)
             
@@ -59,6 +61,12 @@ class HomeViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        
+        self.fbLoginButton.readPermissions = ["public_profile", "email", "user_friends"]
+        self.fbLoginButton.delegate = self
+        
+        self.genderPrefSwitch.on = GenderFixer.suggestedTargetGenderAsBool()
+        println("switch set to \(genderPrefSwitch.on)")
         
         self.searchButton.enabled = true
     }
